@@ -530,6 +530,28 @@
           ],
           "optional": true,
           "notes": "기본 Route에는 포함하지 않음 · 세토내해산 갯장어를 시모노세키에서 매입, 가게 안에서 바로 먹을 수 있음. 산조·폰토초(9번)에서 도보 약 10분이라 필요하면 DAY 2 오후에 끼워 넣을 수 있음. Google 평점 3.7(리뷰 286) 으로 호불호가 갈리는 편"
+        },
+        {
+          "id": "toei-uzumasa-yokai",
+          "order": 20,
+          "name": "우즈마사 영화마을 요괴 페스티벌",
+          "nameJa": "東映太秦映画村 カイカイ妖怪フェスティバル2026",
+          "category": "photo",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/130706_Toei_Kyoto_Studio_Park_Kyoto_Japan02n.jpg/330px-130706_Toei_Kyoto_Studio_Park_Kyoto_Japan02n.jpg",
+          "latitude": 35.0163,
+          "longitude": 135.7073,
+          "address": "10 Uzumasa Higashihachiokacho, Ukyo Ward, Kyoto",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Toei+Kyoto+Studio+Park",
+          "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Toei+Kyoto+Studio+Park",
+          "hours": "10:00–21:00 · 9/19(토)~22(화)는 파크 전역 21시까지 특별 연장",
+          "closedDays": "9/15, 9/29, 10/6·13·20·27",
+          "price": "나이트 타임 ¥2,000 / 1DAY ¥2,800",
+          "admission": "나이트 타임 티켓 17:00~ 입장 ¥2,000 (굿즈 포함 ¥3,000)",
+          "photoPoint": "가라스 거리~오테몬광장 야간 백귀야행 퍼레이드",
+          "operatingNote": "토·일·공휴일에 KAIKAI YOKAI PARADE 17:30, 우즈마사 백귀야행 19:30 개최(쇼 내용 동일). 9/20(일)은 둘 다 열립니다. 퍼레이드 행진 참가는 사전 신청·의상 심사 필수이며 9월분은 마감되어 관람만 가능합니다. 아라시덴 우즈마사 고류지역 도보 5분.",
+          "infoSourceUrl": "https://ko.eigamura.com/feature/yokai2026/",
+          "optional": true,
+          "notes": "대체 코스 · 야간 일정이라 키치키치(17:30–19:00)와 충돌"
         }
       ]
     },
