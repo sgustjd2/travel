@@ -343,8 +343,41 @@
           "notes": "1순위 저녁 · 대체는 사시스 교토 가와라마치"
         },
         {
-          "id": "kyoto-hotel-day2-return",
+          "id": "kyoto-yakitori-seisakusho",
           "order": 11,
+          "name": "교토 야키토리 제작소",
+          "nameJa": "京都焼鳥製作所",
+          "category": "restaurant",
+          "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec2_js4.jpg",
+          "latitude": 35.0025995,
+          "longitude": 135.7661137,
+          "address": "京都市下京区足袋屋町324 (600-8038) · 한큐 교토카와라마치역 10번 출구 도보 2분",
+          "plannedTime": "19:30–21:00 (2차)",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Yakitori+Seisakusho",
+          "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=35.0025995,135.7661137",
+          "reservationStatus": "recommended",
+          "reservationUrl": "https://www.hotpepper.jp/strJ001111146/yoyaku/hpds/",
+          "menuPoint": "교토 지계 京赤地どり 암탉 · 비장탄 숯불 야키토리",
+          "hours": "일~목 17:00–24:00 (L.O. 23:00) · 금·토 17:00–25:00 (L.O. 24:00)",
+          "closedDays": "부정기 휴무",
+          "price": "1인 약 ¥3,000–4,000 · 코스 ¥4,000–6,000 (음료 무제한)",
+          "admission": "해당 없음",
+          "budget": "꼬치 ¥253–352 · 아부리야키 ¥748–1,320",
+          "operatingNote": "점심 영업 없음 · 부정기 휴무라 방문 전 전화(075-746-3948) 또는 웹 예약으로 확인 필요",
+          "infoSourceUrl": "https://www.yakitoriseisakusyo.com/",
+          "menu": [
+            { "name": "もも焼", "nameJa": "もも焼", "nameKo": "닭다리살 아부리야키 (간판 메뉴)", "price": "1,320円", "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec2_js4.jpg" },
+            { "name": "鶏ハラミ焼", "nameJa": "鶏ハラミ焼", "nameKo": "닭 하라미 아부리야키 (희소 부위)", "price": "748円", "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec2_js7.jpg" },
+            { "name": "もも", "nameJa": "もも", "nameKo": "닭다리살 꼬치", "price": "352円", "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec3_js1.jpg" },
+            { "name": "つくね", "nameJa": "つくね", "nameKo": "츠쿠네 (츠키미·치즈·소금·오로시 4종)", "price": "330円", "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec3_img2_sp.jpg" },
+            { "name": "鶏スープだし巻き", "nameJa": "鶏スープだし巻き", "nameKo": "닭육수 다시마키 계란말이", "price": "715円", "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec4_js4.jpg" },
+            { "name": "親子丼", "nameJa": "親子丼", "nameKo": "오야코동 (마무리 메뉴)", "price": "880円", "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec4_js6.jpg" }
+          ],
+          "notes": "키치키치 이후 2차 · 도보 5분(직선 약 360m). 17:00 개점이라 저녁에만 가능하고 점심에는 못 들름. 꼬치는 기본 소금(게랑드), 아부리야키는 유자후추와 함께. 카드·PayPay 가능, 주차 없음"
+        },
+        {
+          "id": "kyoto-hotel-day2-return",
+          "order": 12,
           "name": "교토 숙소",
           "nameJa": "京恋三国",
           "category": "hotel",
@@ -360,7 +393,7 @@
         },
         {
           "id": "arashiyama-bamboo",
-          "order": 12,
+          "order": 13,
           "name": "아라시야마 대나무숲",
           "nameJa": "嵐山竹林",
           "category": "photo",
@@ -379,7 +412,7 @@
         },
         {
           "id": "kinkakuji",
-          "order": 13,
+          "order": 14,
           "name": "금각사",
           "nameJa": "金閣寺",
           "category": "photo",
@@ -399,7 +432,7 @@
         },
         {
           "id": "ruriko-in",
-          "order": 15,
+          "order": 16,
           "name": "루리코인",
           "nameJa": "瑠璃光院",
           "category": "photo",
@@ -418,7 +451,7 @@
         },
         {
           "id": "gontaro-okazaki",
-          "order": 16,
+          "order": 17,
           "name": "곤타로 오카자키점",
           "category": "restaurant",
           "latitude": 35.011,
@@ -445,7 +478,7 @@
         },
         {
           "id": "sasis-kyoto",
-          "order": 17,
+          "order": 18,
           "name": "사시스 교토 가와라마치",
           "category": "restaurant",
           "latitude": 35.0024,
