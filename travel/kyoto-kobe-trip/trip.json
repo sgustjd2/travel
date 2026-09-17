@@ -75,7 +75,7 @@
       "id": "kobe-fuji-walkin-lunch",
       "kind": "must",
       "title": "DAY 3 고베규 점심 대체 확인",
-      "body": "스테이크 이시다 예약 마감 대체로 철판구이 고베 FUJI를 12:30 점심에 배치했습니다. 공식 사이트는 12:00–21:00 통영업·예약 불필요로 안내하지만 부정기 휴무와 재료 소진 가능성이 있으므로 출발 전 078-391-1141로 영업을 확인하세요.",
+      "body": "스테이크 이시다 예약 마감 대체로 철판구이 고베 FUJI를 12:00 점심에 배치했습니다. 공식 사이트는 12:00–21:00 통영업·예약 불필요로 안내하지만 부정기 휴무와 재료 소진 가능성이 있으므로 출발 전 078-391-1141로 영업을 확인하세요.",
       "dayNumber": 3,
       "sourceUrls": ["https://www.teppanyaki-fuji.jp/", "https://kobebeef-org.jp/p-282/"],
       "checkable": true
@@ -84,7 +84,7 @@
       "id": "tenjin-horumon-dinner",
       "kind": "must",
       "title": "DAY 3 일본식 저녁 후보 확인",
-      "body": "오스테리아 가우덴테와 기방문한 뉴뮌헨 대신 하버랜드 MOSAIC 3F의 철판焼き 博多 天神ホルモン을 배치했습니다. 공식 안내는 11:00–22:00(L.O.21:30), 디너 16:00–22:00, 예산 ¥1,180부터입니다. 예약 가능 여부는 안내되지 않아 현장 대기 가능성을 고려해 19:30 전후 방문하세요.",
+      "body": "오스테리아 가우덴테와 기방문한 뉴뮌헨 대신 하버랜드 MOSAIC 3F의 철판焼き 博多 天神ホルモン을 배치했습니다. 공식 안내는 11:00–22:00(L.O.21:30), 디너 16:00–22:00, 예산 ¥1,180부터입니다. 예약 가능 여부는 안내되지 않아 현장 대기 가능성을 고려해 18:00 전후 방문하고, 대기 시 19:30까지 늦출 수 있습니다.",
       "dayNumber": 3,
       "sourceUrls": ["https://umie.jp/shops/detail/181", "https://www.tenhoru.jp/page/menu"],
       "checkable": true
@@ -905,7 +905,7 @@
           "latitude": 34.6998,
           "longitude": 135.1907,
           "address": "1-26-3 Nakayamatedori, Chuo Ward, Kobe",
-          "plannedTime": "기타노 선택 시 10:45–11:05",
+          "plannedTime": "허브원 대신 선택 · 09:30–09:50",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nishimura+Coffee+Nakayamatedori+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.6998,135.1907",
           "reservationStatus": "not_required",
@@ -918,7 +918,7 @@
           "optional": true,
           "alternativeFor": "nunobiki-herb-garden-day3",
           "infoSourceUrl": "https://kobe-nishimura.jp/shop/nakayamate.html",
-          "notes": "DAY 4에서 이동 · 고베 도착 후 기타노 촬영 전 짧은 휴식"
+          "notes": "허브원 대신 선택 · 산노미야에서 도보 약 10–15분 · 기타노 촬영 전 짧은 휴식"
         },
         {
           "id": "kitano-ijinkan-day3",
@@ -930,7 +930,7 @@
           "latitude": 34.7023,
           "longitude": 135.1892,
           "address": "Kitanocho, Chuo Ward, Kobe",
-          "plannedTime": "허브원 대신 선택 · 11:15–12:00",
+          "plannedTime": "허브원 대신 선택 · 09:50–10:40",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kitano+Ijinkan+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.7023,135.1892",
           "reservationStatus": "not_required",
@@ -940,7 +940,7 @@
           "photoPoint": "서양식 건축 · 언덕길 스트리트 스냅",
           "optional": true,
           "alternativeFor": "nunobiki-herb-garden-day3",
-          "notes": "DAY 4에서 이동 · 허브원 대신 선택하는 대안"
+          "notes": "허브원 대신 선택 · 산노미야에서 도보 약 10–15분 · 점심 전 기타노 구역만 짧게 보는 대안"
         },
         {
           "id": "nunobiki-herb-garden-day3",
@@ -1220,7 +1220,7 @@
             { "name": "カルビ＆ミックスホルモン定食", "nameJa": "カルビ＆ミックスホルモン定食", "nameKo": "갈비 & 모둠 호르몬 정식", "price": "¥1,680", "imageKey": "steak" },
             { "name": "豚タン＆ミックス定食", "nameJa": "豚タン＆ミックス定食", "nameKo": "돼지 우설 & 모둠 정식", "price": "¥1,580", "imageKey": "steak" }
           ],
-          "operatingNote": "하버랜드 MOSAIC 3F에서 운영하는 일본식 철판 호르몬 전문점입니다. 공식 페이지에 예약 안내는 확인되지 않아 19:30 현장 방문을 기본으로 하되, 혼잡 시 대기 시간을 고려하세요.",
+          "operatingNote": "하버랜드 MOSAIC 3F에서 운영하는 일본식 철판 호르몬 전문점입니다. 공식 페이지에 예약 안내는 확인되지 않아 18:00 전후 현장 방문을 기본으로 하되, 혼잡 시 19:30까지 대기 시간을 고려하세요.",
           "infoSourceUrl": "https://umie.jp/shops/detail/181",
           "notes": "하버랜드/MOSAIC 3F 같은 건물 · 가우덴테·뉴뮌헨 대신 일본식 저녁 · 현장 대기 시 식사 시간을 19:30까지 늦출 수 있음"
         },
