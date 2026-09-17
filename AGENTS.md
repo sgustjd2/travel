@@ -94,21 +94,24 @@ This file is the repository-level agent guide and travels with every clone or fo
 - Search in this order: user-provided material, official place/homepage/SNS/reservation pages, exact Google Maps place results, then municipal/tourism/reliable local sources. Use blogs or encyclopedic pages only as supplementary context.
 - Cross-check volatile facts such as hours, last order, closed days, prices, reservations, and menu availability. If a fact is missing, conflicting, inaccessible, or not current enough to confirm, write `확인 필요`, preserve the reason in `needsConfirmation`, and never invent coordinates or images.
 - For restaurants and cafes, keep `closedDays` separate. For Japanese menus, preserve `nameJa`, add `nameKo`, preserve sourced prices, and retain menu/image source URLs and rights notes.
+- Extract actionable preparation from reservations, admission, transport, closures, seasonality, payment, luggage, and accessibility into top-level `guideItems` with `must`/`warning`/`tip`, source URLs, and `checkable`. The shared `TravelGuideSheet` renders it and `completedGuideIds` belongs to the local/exported travel record.
 
 ## Travel app visual contract
 
-The current Kyoto/Kobe app is the reusable visual baseline for every destination. Before creating a new trip, read `.agents/skills/travel-map-builder/references/design-system.md` and `.agents/skills/travel-map-builder/references/component-contract.md`. Keep the shared components in `src/travel-ui/` for the header with header-owned DAY/date navigation, compact sticky route map, category-colored itinerary cards, phone-scoped detail sheet, bottom navigation, Pretendard-first typography, spacing, and responsive behavior. Do not recreate a full-width DAY tab strip or overlay day controls on the map. When itinerary scrolling begins, collapse the sticky map to its route-summary bar without changing the reserved scroll layout height so the page does not bounce and place cards remain readable. `travel/<destination-slug>/trip.json` owns data and `page/<destination-slug>/index.html` owns the page entry; neither may introduce a separate generic dashboard theme, duplicate shared JSX, or independent CSS when the shared app engine is available.
+The current Kyoto/Kobe app is the reusable visual baseline for every destination. Before creating a new trip, read `.agents/skills/travel-map-builder/references/design-system.md` and `.agents/skills/travel-map-builder/references/component-contract.md`. Keep the shared components in `src/travel-ui/` for the header with header-owned DAY/date navigation, compact sticky route map, category-colored itinerary cards, phone-scoped detail sheet, bottom navigation, `TravelGuideSheet`, Pretendard-first typography, spacing, and responsive behavior. Do not recreate a full-width DAY tab strip or overlay day controls on the map. When itinerary scrolling begins, collapse the sticky map to its route-summary bar without changing the reserved scroll layout height so the page does not bounce and place cards remain readable. The quick menu must expose `준비·꿀팁` through the shared guide sheet with grouped colors, source links, internal scrolling, and check state. `travel/<destination-slug>/trip.json` owns data and `page/<destination-slug>/index.html` owns the page entry; neither may introduce a separate generic dashboard theme, duplicate shared JSX, or independent CSS when the shared app engine is available.
 
 ## Documentation and travel-record handoff
 
 Use `README.md` as the human-facing index. Keep the short path visible near the top: live Pages links, local start, fork/deploy, travel-record sharing, and prompt entry points. Put long prompts and contract details in linked files or collapsible sections so the README remains scannable.
 
-The shared app flow is part of the product contract, not an optional destination feature: users can add a place, edit a place, hide/delete a place locally, mark visits, save favorites, write notes, and export/import a destination-scoped JSON record. A static GitHub Pages URL shares the plan; the JSON transfer shares LocalStorage results with a friend or another device. Preserve both paths when changing UI or agent instructions.
+The shared app flow is part of the product contract, not an optional destination feature: users can add a place, edit a place, hide/delete a place locally, mark visits, save favorites, write notes, check preparation items, and export/import a destination-scoped JSON record. A static GitHub Pages URL shares the plan; the JSON transfer shares LocalStorage results with a friend or another device. Preserve both paths when changing UI or agent instructions.
 
 Provider handoff is intentionally symmetric:
 
 - Codex: `AGENTS.md` → `.agents/skills/travel-map-builder/SKILL.md`
 - Claude Code: `CLAUDE.md` → `.claude/skills/travel-map-builder/SKILL.md`
 - Gemini CLI: `GEMINI.md` → `.gemini/skills/travel-map-builder/SKILL.md`
+
+For preparation-only work, use `.agents/skills/travel-prep-guide/SKILL.md`; Claude and Gemini use the matching provider pointer in `.claude/skills/travel-prep-guide/` or `.gemini/skills/travel-prep-guide/`.
 
 All provider pointers must lead to the same canonical data, visual, component, research, and deployment rules. When those rules change, update the canonical skill first, then the pointers/metadata and README links.

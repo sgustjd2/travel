@@ -12,6 +12,7 @@
 4. Google Maps 링크가 없으면 장소명+도시로 정확한 검색 링크를 만들고, 정확한 핀을 검증하지 못하면 `coordinates: null`로 둡니다. 좌표를 추측하지 않습니다.
 5. 일본어 메뉴는 `nameJa`와 `nameKo`를 함께 기록하고, 가격은 출처의 표기를 그대로 보존합니다. 메뉴 사진은 메뉴 항목의 원문 페이지와 이미지 사용 권한 또는 출처를 함께 기록합니다.
 6. 대표 이미지는 사용자가 제공한 이미지, 공식 페이지의 안정적인 `og:image`/직접 이미지, 사용 허용 범위가 명확한 Wikimedia 순으로 선택합니다. 검색 썸네일, 만료·blob·data URL, 권한이 불명확한 hotlink는 넣지 않습니다.
+7. 예약·입장·교통·휴무·날씨/계절·결제·짐·접근성처럼 여행 전에 행동이 필요한 내용은 `guideItems`로도 정리합니다. `must`는 필수 준비, `warning`은 주의할 점, `tip`은 선택적인 꿀팁이며, 체크 가능한 항목은 `checkable: true`로 둡니다.
 
 ## 정규 출력 형식
 
@@ -55,6 +56,26 @@
       "reservationUrl": "https://...",
       "sourceUrls": ["https://..."],
       "notes": "예약 번호 또는 확인 필요"
+    }
+  ],
+  "guideItems": [
+    {
+      "id": "flight-terminal-check",
+      "kind": "must",
+      "title": "공항 터미널·교통 확인",
+      "body": "항공편 터미널과 도착 후 교통편을 출발 전에 확인하세요.",
+      "dayNumber": 1,
+      "sourceUrls": ["https://example.com/official"],
+      "checkable": true
+    },
+    {
+      "id": "early-photo-tip",
+      "kind": "tip",
+      "title": "혼잡 전 촬영",
+      "body": "공식 개문 시간과 계절별 변동을 확인한 뒤 이른 시간에 방문하세요.",
+      "dayNumber": 1,
+      "sourceUrls": ["https://example.com/official"],
+      "checkable": false
     }
   ],
   "days": [
@@ -109,4 +130,4 @@
 
 ## 앱 생성 에이전트가 해야 할 일
 
-`travel-research.v1` JSON을 받은 에이전트는 `trip-data-contract.md`와 `component-contract.md`에 맞춰 `travel/<destination-slug>/trip.json`으로 변환합니다. 원본 계획의 장소·날짜·순서를 우선 보존하고, 조사 결과의 `needsConfirmation`은 앱의 `확인 필요` UI로 표시합니다. `alternatives`는 기본 동선에 섞지 않고 `optional: true` 후보로 변환합니다. 기존 여행 폴더와 로컬 기록은 덮어쓰지 않습니다.
+`travel-research.v1` JSON을 받은 에이전트는 `trip-data-contract.md`와 `component-contract.md`에 맞춰 `travel/<destination-slug>/trip.json`으로 변환합니다. 원본 계획의 장소·날짜·순서를 우선 보존하고, 조사 결과의 `needsConfirmation`은 앱의 `확인 필요` UI로 표시합니다. 예약·입장·교통·휴무·계절·결제·짐·접근성에서 확인된 행동 항목은 최상위 `guideItems`로 변환하고 출처와 `checkable` 여부를 유지합니다. `alternatives`는 기본 동선에 섞지 않고 `optional: true` 후보로 변환합니다. 기존 여행 폴더와 로컬 기록은 덮어쓰지 않습니다.

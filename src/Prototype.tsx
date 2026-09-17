@@ -30,7 +30,7 @@ import {
   X,
 } from "lucide-react";
 import { BottomSheet, KeyboardInput, KeyboardTextarea, MobileScroll, useKeyboard } from "./mobile";
-import { CATEGORY_COLORS, CATEGORY_CONFIGS, TravelBottomNav, TravelCategoryLegend, TravelDataTransferSheet, TravelHeader, TravelPlaceCard, categoryIcons, categoryLabels, type CategoryConfig } from "./travel-ui";
+import { CATEGORY_COLORS, CATEGORY_CONFIGS, TravelBottomNav, TravelCategoryLegend, TravelDataTransferSheet, TravelGuideSheet, TravelHeader, TravelPlaceCard, categoryIcons, categoryLabels, type CategoryConfig } from "./travel-ui";
 import type { Category, CategoryFilter, Coordinate, DayFilter, LocalTripState, MapPlace, MenuImageKey, MenuItem, Place, PlaceDraft, ReservationStatus, TransferMode, TransferPayload, TransferStatus, Trip, TripDay, View } from "./travel-ui";
 const tripDataFiles = import.meta.glob("../travel/*/trip.json", { eager: true, import: "default" }) as Record<string, Trip>;
 
@@ -104,6 +104,7 @@ function normalizeLocalState(value: Partial<LocalTripState> | null | undefined):
   return {
     selectedDay: trip.days.some((day) => day.dayOfMonth === selectedDay) ? selectedDay : trip.days[0]?.dayOfMonth ?? 1,
     completedPlaceIds: stringArray(value?.completedPlaceIds),
+    completedGuideIds: stringArray(value?.completedGuideIds),
     favoritePlaceIds: stringArray(value?.favoritePlaceIds),
     notes: stringRecord(value?.notes),
     reservationDoneIds: stringArray(value?.reservationDoneIds),
@@ -257,6 +258,10 @@ function distanceLabel(current: Place, next?: Place) {
   if (!start || !end) return "이동 정보 확인 필요";
   const distance = distanceKm(start, end);
   return `직선 약 ${distance < 1 ? `${Math.round(distance * 1000)}m` : `${distance.toFixed(1)}km`}`;
+}
+
+function comparePlaceOrder(left: Place, right: Place) {
+  return (left.order ?? Number.MAX_SAFE_INTEGER) - (right.order ?? Number.MAX_SAFE_INTEGER);
 }
 
 function createNumberIcon(label: string, selected: boolean, optional: boolean, color: string, offsetX = 0) {
@@ -534,9 +539,9 @@ function PlaceDetailSheet({ place, day, open, onClose, note, onNoteChange, compl
 }
 
 function ScheduleView({ activeDay, selectedPlace, selectedPlaceId, showAlternatives, setShowAlternatives, actualOnly, onToggleActualOnly, onAddPlace, onSelectPlace, onFocusPlace, onToggleComplete, onToggleFavorite, completedIds, favoriteIds, userLocation, onUserLocation }: { activeDay: TripDay; selectedPlace: Place | null; selectedPlaceId: string | null; showAlternatives: boolean; setShowAlternatives: (show: boolean) => void; actualOnly: boolean; onToggleActualOnly: () => void; onAddPlace: () => void; onSelectPlace: (place: MapPlace) => void; onFocusPlace: (place: MapPlace) => void; onToggleComplete: (id: string) => void; onToggleFavorite: (id: string) => void; completedIds: string[]; favoriteIds: string[]; userLocation: Coordinate | null; onUserLocation: (location: Coordinate) => void }) {
-  const primaryPlaces = activeDay.places.filter((place) => !place.optional);
-  const restaurantAlternatives = activeDay.places.filter((place) => place.optional && place.category === "restaurant");
-  const otherAlternatives = activeDay.places.filter((place) => place.optional && place.category !== "restaurant");
+  const primaryPlaces = activeDay.places.filter((place) => !place.optional).sort(comparePlaceOrder);
+  const restaurantAlternatives = activeDay.places.filter((place) => place.optional && place.category === "restaurant").sort(comparePlaceOrder);
+  const otherAlternatives = activeDay.places.filter((place) => place.optional && place.category !== "restaurant").sort(comparePlaceOrder);
   const withDay = (place: Place): MapPlace => ({ ...place, dayNumber: activeDay.dayNumber, dayOfMonth: activeDay.dayOfMonth, dayTitle: activeDay.title });
   const visitedCount = activeDay.places.filter((place) => completedIds.includes(place.id)).length;
   const renderCard = (place: Place) => <PlaceCardDataAdapter place={place} selected={selectedPlaceId === place.id} completed={completedIds.includes(place.id)} favorite={favoriteIds.includes(place.id)} onSelect={() => onSelectPlace(withDay(place))} onToggleComplete={() => onToggleComplete(place.id)} onToggleFavorite={() => onToggleFavorite(place.id)} />;
@@ -568,8 +573,8 @@ function ScheduleView({ activeDay, selectedPlace, selectedPlaceId, showAlternati
 function AllMapView({ allPlaces, selectedPlace, onSelectPlace, onUserLocation, userLocation }: { allPlaces: MapPlace[]; selectedPlace: Place | null; onSelectPlace: (place: MapPlace) => void; onUserLocation: (location: Coordinate) => void; userLocation: Coordinate | null }) {
   const [dayFilter, setDayFilter] = useState<DayFilter>("all");
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>("all");
-  const filtered = allPlaces.filter((place) => (dayFilter === "all" || place.dayOfMonth === dayFilter) && (categoryFilter === "all" || place.category === categoryFilter));
-  const routePlaces = dayFilter === "all" ? allPlaces.filter((place) => !place.optional) : filtered.filter((place) => !place.optional);
+  const filtered = allPlaces.filter((place) => (dayFilter === "all" || place.dayOfMonth === dayFilter) && (categoryFilter === "all" || place.category === categoryFilter)).sort((left, right) => (left.dayNumber ?? 0) - (right.dayNumber ?? 0) || comparePlaceOrder(left, right));
+  const routePlaces = filtered.filter((place) => !place.optional);
   const categoryOptions: Array<{ key: CategoryFilter; label: string }> = [{ key: "all", label: "전체" }, { key: "photo", label: "사진" }, { key: "restaurant", label: "맛집" }, { key: "cafe", label: "카페" }, { key: "hotel", label: "숙소" }];
   return <main className="all-map-view"><section className="view-heading"><span className="eyebrow">ALL DAYS</span><h1>전체 지도</h1><p>날짜와 장소 종류로 경로를 가볍게 좁혀볼 수 있어요.</p></section><div className="filter-group"><span className="filter-label">날짜</span><div className="filter-row">{[{ key: "all", label: "전체" }, ...trip.days.map((day) => ({ key: day.dayOfMonth, label: String(day.dayOfMonth) }))].map((filter) => <button type="button" key={String(filter.key)} className={dayFilter === filter.key ? "is-active" : ""} onClick={() => setDayFilter(filter.key as DayFilter)}>{filter.label}</button>)}</div></div><div className="filter-group"><span className="filter-label">장소</span><div className="filter-row">{categoryOptions.map((filter) => <button type="button" key={filter.key} className={categoryFilter === filter.key ? "is-active" : ""} onClick={() => setCategoryFilter(filter.key)}>{filter.label}</button>)}</div></div><TripMap mode="all" places={filtered} routePlaces={routePlaces} selectedPlace={selectedPlace} onSelect={onSelectPlace} userLocation={userLocation} onUserLocation={onUserLocation} /><section className="all-map-list"><div className="section-heading"><div><span className="eyebrow">{filtered.length} PLACES</span><h2>필터 결과</h2></div></div>{filtered.filter((place) => !place.optional).slice(0, 12).map((place) => <button type="button" key={place.id} onClick={() => onSelectPlace(place)} className={selectedPlace?.id === place.id ? "is-selected" : ""}><span className="all-map-number" style={{ "--number-color": CATEGORY_COLORS[place.category] } as CSSProperties}>{place.order}</span><span><strong>{place.name}</strong><small>DAY {place.dayNumber} · {categoryLabels[place.category]}</small></span><ChevronRight size={16} /></button>)}</section></main>;
 }
@@ -611,6 +616,7 @@ export default function Prototype() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [completedIds, setCompletedIds] = useState<string[]>(persisted?.completedPlaceIds ?? []);
+  const [completedGuideIds, setCompletedGuideIds] = useState<string[]>(persisted?.completedGuideIds ?? []);
   const [favoriteIds, setFavoriteIds] = useState<string[]>(persisted?.favoritePlaceIds ?? []);
   const [notes, setNotes] = useState<Record<string, string>>(persisted?.notes ?? {});
   const [reservationDoneIds, setReservationDoneIds] = useState<string[]>(persisted?.reservationDoneIds ?? []);
@@ -622,6 +628,7 @@ export default function Prototype() {
   const [editorPlace, setEditorPlace] = useState<MapPlace | null>(null);
   const [userLocation, setUserLocation] = useState<Coordinate | null>(null);
   const [transferOpen, setTransferOpen] = useState(false);
+  const [guideOpen, setGuideOpen] = useState(false);
   const [transferMode, setTransferMode] = useState<TransferMode>("export");
   const [transferText, setTransferText] = useState("");
   const [transferStatus, setTransferStatus] = useState<TransferStatus>(null);
@@ -631,17 +638,18 @@ export default function Prototype() {
     return { ...day, places: [...originalPlaces, ...manualPlaces] };
   }), [addedPlaces, hiddenPlaceIds, placeEdits]);
   const visibleDays = useMemo(() => editedDays.map((day) => ({ ...day, places: actualOnly ? day.places.filter((place) => completedIds.includes(place.id)) : day.places })), [actualOnly, completedIds, editedDays]);
-  const transferTripSnapshot = useMemo<Trip>(() => ({ title: trip.title, days: editedDays }), [editedDays]);
+  const transferTripSnapshot = useMemo<Trip>(() => ({ ...trip, days: editedDays }), [editedDays]);
   const activeDay = visibleDays.find((day) => day.dayOfMonth === selectedDay) ?? visibleDays[0] ?? trip.days[0];
   const allPlaces = useMemo(() => visibleDays.flatMap((day) => day.places.map((place) => ({ ...place, dayNumber: day.dayNumber, dayOfMonth: day.dayOfMonth, dayTitle: day.title }))), [visibleDays]);
   const selectedPlace = allPlaces.find((place) => place.id === selectedPlaceId) ?? null;
   const selectedPlaceDay = selectedPlace ? visibleDays.find((day) => day.dayNumber === selectedPlace.dayNumber) : activeDay;
 
-  useEffect(() => { window.localStorage.setItem(tripStorageKey, JSON.stringify({ selectedDay, completedPlaceIds: completedIds, favoritePlaceIds: favoriteIds, notes, reservationDoneIds, placeEdits, hiddenPlaceIds, addedPlaces, actualOnly } satisfies LocalTripState)); }, [selectedDay, completedIds, favoriteIds, notes, reservationDoneIds, placeEdits, hiddenPlaceIds, addedPlaces, actualOnly]);
+  useEffect(() => { window.localStorage.setItem(tripStorageKey, JSON.stringify({ selectedDay, completedPlaceIds: completedIds, completedGuideIds, favoritePlaceIds: favoriteIds, notes, reservationDoneIds, placeEdits, hiddenPlaceIds, addedPlaces, actualOnly } satisfies LocalTripState)); }, [selectedDay, completedIds, completedGuideIds, favoriteIds, notes, reservationDoneIds, placeEdits, hiddenPlaceIds, addedPlaces, actualOnly]);
   useEffect(() => { const query = new URLSearchParams(window.location.search); query.set("day", String(selectedDay)); window.history.replaceState({}, "", `${window.location.pathname}?${query.toString()}`); }, [selectedDay]);
   useEffect(() => { if ("serviceWorker" in navigator) navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => undefined); }, []);
 
-  const currentLocalState: LocalTripState = { selectedDay, completedPlaceIds: completedIds, favoritePlaceIds: favoriteIds, notes, reservationDoneIds, placeEdits, hiddenPlaceIds, addedPlaces, actualOnly };
+  const currentLocalState: LocalTripState = { selectedDay, completedPlaceIds: completedIds, completedGuideIds, favoritePlaceIds: favoriteIds, notes, reservationDoneIds, placeEdits, hiddenPlaceIds, addedPlaces, actualOnly };
+  const openGuide = () => { setMenuOpen(false); setGuideOpen(true); };
   const openExportData = () => { setMenuOpen(false); setTransferMode("export"); setTransferText(createTransferText(currentLocalState, transferTripSnapshot)); setTransferStatus({ tone: "info", message: "이 JSON은 현재 일정 스냅샷과 방문·저장·메모·수정·삭제 기록을 포함합니다." }); setTransferOpen(true); };
   const openImportData = () => { setMenuOpen(false); setTransferMode("import"); setTransferText(""); setTransferStatus({ tone: "info", message: "카카오톡이나 파일에서 JSON 전체를 붙여넣어 주세요." }); setTransferOpen(true); };
   const copyTransferData = async () => {
@@ -685,6 +693,7 @@ export default function Prototype() {
       const next = parseTransferText(transferText);
       setSelectedDay(next.selectedDay);
       setCompletedIds(next.completedPlaceIds);
+      setCompletedGuideIds(next.completedGuideIds);
       setFavoriteIds(next.favoritePlaceIds);
       setNotes(next.notes);
       setReservationDoneIds(next.reservationDoneIds);
@@ -756,5 +765,5 @@ export default function Prototype() {
 
   const headerTitle = view === "schedule" ? trip.title : view === "map" ? "전체 지도" : view === "reservations" ? "예약·운영 확인" : "저장한 장소";
   const changeView = (nextView: View) => { setView(nextView); setMenuOpen(false); };
-  return <div className="trip-app"><MobileScroll className="trip-scroll"><div className="trip-scroll-content"><TravelHeader title={headerTitle} dateLabel={tripDateLabel} days={trip.days} activeDay={activeDay} view={view} menuOpen={menuOpen} onMenuToggle={setMenuOpen} onViewChange={changeView} onDayChange={selectDay} onExportData={openExportData} onImportData={openImportData} />{appContent}</div></MobileScroll><ScrollToTopButton /><TravelBottomNav view={view} onViewChange={changeView} /><PlaceDetailSheet place={selectedPlace} day={selectedPlaceDay} open={sheetOpen} onClose={() => setSheetOpen(false)} note={selectedPlace ? notes[selectedPlace.id] ?? "" : ""} onNoteChange={(note) => { if (selectedPlace) setNotes((current) => ({ ...current, [selectedPlace.id]: note })); }} completed={selectedPlace ? completedIds.includes(selectedPlace.id) : false} favorite={selectedPlace ? favoriteIds.includes(selectedPlace.id) : false} onToggleComplete={() => { if (selectedPlace) toggleId(setCompletedIds, selectedPlace.id); }} onToggleFavorite={() => { if (selectedPlace) toggleId(setFavoriteIds, selectedPlace.id); }} onEdit={() => { if (selectedPlace) openEditor(selectedPlace); }} onDelete={deleteSelectedPlace} /><PlaceEditorSheet place={editorPlace} open={editorOpen} completed={editorPlace ? completedIds.includes(editorPlace.id) : false} onClose={() => { setEditorOpen(false); setEditorPlace(null); }} onSave={savePlaceDraft} /><TravelDataTransferSheet open={transferOpen} mode={transferMode} text={transferText} status={transferStatus} onClose={() => setTransferOpen(false)} onTextChange={setTransferText} onImport={applyTransferData} onCopy={copyTransferData} onShare={shareTransferData} onDownload={downloadTransferData} onFileSelect={handleTransferFile} /></div>;
+  return <div className="trip-app"><MobileScroll className="trip-scroll"><div className="trip-scroll-content"><TravelHeader title={headerTitle} dateLabel={tripDateLabel} days={trip.days} activeDay={activeDay} view={view} menuOpen={menuOpen} onMenuToggle={setMenuOpen} onViewChange={changeView} onDayChange={selectDay} onOpenGuide={openGuide} onExportData={openExportData} onImportData={openImportData} />{appContent}</div></MobileScroll><ScrollToTopButton /><TravelBottomNav view={view} onViewChange={changeView} /><PlaceDetailSheet place={selectedPlace} day={selectedPlaceDay} open={sheetOpen} onClose={() => setSheetOpen(false)} note={selectedPlace ? notes[selectedPlace.id] ?? "" : ""} onNoteChange={(note) => { if (selectedPlace) setNotes((current) => ({ ...current, [selectedPlace.id]: note })); }} completed={selectedPlace ? completedIds.includes(selectedPlace.id) : false} favorite={selectedPlace ? favoriteIds.includes(selectedPlace.id) : false} onToggleComplete={() => { if (selectedPlace) toggleId(setCompletedIds, selectedPlace.id); }} onToggleFavorite={() => { if (selectedPlace) toggleId(setFavoriteIds, selectedPlace.id); }} onEdit={() => { if (selectedPlace) openEditor(selectedPlace); }} onDelete={deleteSelectedPlace} /><PlaceEditorSheet place={editorPlace} open={editorOpen} completed={editorPlace ? completedIds.includes(editorPlace.id) : false} onClose={() => { setEditorOpen(false); setEditorPlace(null); }} onSave={savePlaceDraft} /><TravelGuideSheet open={guideOpen} items={trip.guideItems ?? []} completedIds={completedGuideIds} onClose={() => setGuideOpen(false)} onToggle={(id) => toggleId(setCompletedGuideIds, id)} /><TravelDataTransferSheet open={transferOpen} mode={transferMode} text={transferText} status={transferStatus} onClose={() => setTransferOpen(false)} onTextChange={setTransferText} onImport={applyTransferData} onCopy={copyTransferData} onShare={shareTransferData} onDownload={downloadTransferData} onFileSelect={handleTransferFile} /></div>;
 }

@@ -27,6 +27,7 @@ Use the shared components as the default public UI API:
 - `TravelBottomNav`: the fixed four-item schedule/map/reservations/saved navigation.
 - `TravelCategoryLegend`: the shared category colors, labels, and icons.
 - `TravelPlaceCard`: category-colored number/icon/accent, reserved right-side controls and preview, closure state, favorite, and visit check.
+- `TravelGuideSheet`: grouped `must`/`warning`/`tip` preparation checklist with source links and local completion state.
 - `TravelDataTransferSheet`: scrollable travel-record JSON export/import sheet.
 
 Use `src/travel-ui/index.ts` for new imports when practical. A destination may add a thin data adapter for preview text or images, but may not copy the full header, card, navigation, or sheet JSX. Do not add destination-specific dashboard markup, duplicate CSS, or a second design system.
@@ -41,11 +42,13 @@ For documentation changes, keep the user-facing route in `README.md` short and l
 
 - Keep Pretendard-first typography, pale background, white bordered surfaces, clear section boundaries, and the shared type scale.
 - Keep category colors and icons consistent for cards, numbers, map markers, and the legend.
+- Keep the quick-menu `준비·꿀팁` entry and render `Trip.guideItems` through `TravelGuideSheet`; do not place preparation content over the map or duplicate it in destination CSS.
 - Keep the compact sticky route preview map below the header. Collapse it to its summary bar during itinerary scrolling while reserving its layout slot; cards must not be covered and the scroll position must not bounce.
 - A map marker focuses and scrolls to its card without opening a detail sheet. A card body opens the phone-scoped `BottomSheet` detail view.
 - Detail sheets own their scroll container and must reach both the first and last content, including menus, photos, alternatives, and notes.
 - Reserve right-side room for thumbnails and controls. Test long titles, closure labels, Korean/Japanese menu lines, and images at 360, 393, and 430 CSS pixels plus the wide simulated-phone viewport.
 - Failed remote images must show a local/map/category fallback, never a broken-image icon. Resolve local assets through `import.meta.env.BASE_URL`.
+- The guide sheet must scroll to its final item at 360px, support check/uncheck for `checkable` items, and preserve `completedGuideIds` through LocalStorage and JSON transfer.
 
 ## Workflow and verification
 

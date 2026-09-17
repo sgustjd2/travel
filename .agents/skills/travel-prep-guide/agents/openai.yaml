@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel Prep Guide"
+  short_description: "Create verified travel prep checklists and tips"
+  default_prompt: "Use $travel-prep-guide to turn my travel research into verified must-do items, warnings, and tips for the app's 준비·꿀팁 menu."

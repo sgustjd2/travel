@@ -20,11 +20,12 @@
 4. 주소·정확한 Google Maps 링크·좌표·영업시간·라스트오더·휴무일·가격·입장료·예약·대표 이미지·출처를 보완해. Google Maps 링크가 없으면 정확한 검색 링크를 만들고 정확한 핀을 검증하지 못한 좌표는 null로 둬. 식당·카페는 휴무일을 별도 표시하고 모르면 `확인 필요`로 표시해.
 5. 일본어 메뉴는 일본어 원문 아래에 한국어 번역과 가격을 넣고, 가능한 메뉴별 음식 사진과 출처를 연결해. 사용자가 제공한 숙소/장소 이미지는 `public/assets/`에 반영하고, 원격 이미지가 실패해도 지도·카테고리 폴백이 보이게 해. 나무위키·블로그는 설명 보완용으로만 사용하고 운영 정보는 공식 자료와 교차 확인해.
 6. 대체 식당은 `optional: true`, `alternativeFor`, `nearbyWalk`로 기본 동선과 분리해.
+7. 예약·입장·교통·휴무·날씨/계절·결제·짐·접근성에서 여행 전에 확인할 내용을 최상위 `guideItems`로 만들어. 각 항목에 `id`, `kind`(`must`/`warning`/`tip`), 행동 중심 `title`, 사실과 확인 행동을 담은 `body`, 필요한 `dayNumber`, `sourceUrls`, `checkable`을 넣고 빠른 메뉴의 `준비·꿀팁`에서 보이게 해.
 
 공통 UI·디자인 규칙:
 - 현재 교토·고베 실제 화면을 모든 여행의 시각 기준으로 사용해. 별도 dashboard, 통계 카드, 독립 header/navigation/CSS를 만들지 마.
 - `src/travel-ui/index.ts`에서 `TravelHeader`, `TravelBottomNav`,
-  `TravelCategoryLegend`, `TravelPlaceCard`, `TravelDataTransferSheet`를 가져와 사용하고,
+  `TravelCategoryLegend`, `TravelPlaceCard`, `TravelGuideSheet`, `TravelDataTransferSheet`를 가져와 사용하고,
   공통 구현은 `src/travel-ui/components.tsx`, 타입은 `types.ts`, 카테고리는 `category.ts`,
   공통 스타일은 `src/prototype.css`에 둬.
 - `Prototype.tsx`는 상태·데이터 조합·지도 동작만 담당하게 하고, 여행 폴더에 카드/헤더/하단 메뉴/시트 JSX나 독립 CSS를 복사하지 마.
@@ -34,6 +35,7 @@
 - 카드 오른쪽 썸네일·하트·체크 공간을 예약하고, 제목·휴무일·메뉴가 이미지나 컨트롤 아래로 밀리지 않게 해.
 - 실제 방문 체크·즐겨찾기·메모·예약 체크·장소 수정/삭제/추가·실제 방문만 보기와 LocalStorage 저장을 유지해.
 - 빠른 메뉴에서 현재 여행 기록을 JSON으로 내보내기(공유·클립보드·파일)와 가져오기(붙여넣기·파일)를 유지하고, 다른 slug의 데이터는 거부해.
+- `guideItems`의 checkable 항목 완료 상태도 `completedGuideIds`로 LocalStorage와 JSON 내보내기/가져오기에 포함해.
 
 검수:
 - `npm run validate:trip`

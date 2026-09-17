@@ -2307,6 +2307,217 @@
   color: #bd4c5d;
 }
 
+.guide-sheet-content {
+  display: grid;
+  min-width: 0;
+  gap: 14px;
+  padding: 2px 0 calc(var(--device-safe-area-bottom, 34px) + 10px);
+}
+
+.guide-summary {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #dce6f4;
+  border-radius: 14px;
+  background: #f5f8fd;
+}
+
+.guide-summary > div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.guide-summary strong {
+  flex: 0 0 auto;
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.guide-group {
+  --guide-accent: var(--blue);
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--guide-accent);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.guide-must {
+  --guide-accent: var(--blue);
+  background: #f5f8ff;
+}
+
+.guide-warning {
+  --guide-accent: #c1831f;
+  background: #fffaf0;
+}
+
+.guide-tip {
+  --guide-accent: var(--mint);
+  background: #f1fbf8;
+}
+
+.guide-group-heading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 7px;
+  color: var(--guide-accent);
+}
+
+.guide-group-heading h3 {
+  min-width: 0;
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
+.guide-group-heading > span {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.guide-list {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.guide-item {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 9px;
+  padding: 10px;
+  border: 1px solid rgba(214, 224, 236, 0.9);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.guide-check,
+.guide-item-icon {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  align-self: start;
+  box-sizing: border-box;
+  border: 1px solid #c9d7e8;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--guide-accent);
+}
+
+.guide-check {
+  padding: 0;
+}
+
+.guide-item.is-completed .guide-check {
+  border-color: var(--guide-accent);
+  background: var(--guide-accent);
+  color: #fff;
+}
+
+.guide-item-copy {
+  min-width: 0;
+}
+
+.guide-item-copy > strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.guide-item.is-completed .guide-item-copy > strong {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.guide-day-label {
+  display: inline-flex;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #edf3ff;
+  color: var(--blue);
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.guide-item-copy p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.guide-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 7px;
+}
+
+.guide-sources a {
+  color: var(--blue);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.guide-sources a:hover,
+.guide-sources a:focus-visible {
+  text-decoration: underline;
+}
+
+.guide-empty {
+  display: grid;
+  min-height: 150px;
+  place-items: center;
+  gap: 7px;
+  padding: 24px 16px;
+  border: 1px dashed #cbd8e8;
+  border-radius: 16px;
+  background: #fbfcfe;
+  color: #94a2b5;
+  text-align: center;
+}
+
+.guide-empty strong {
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.guide-empty p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
 .transfer-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2628,6 +2839,23 @@ a:focus-visible {
 
   .section-hint {
     display: none;
+  }
+
+  .guide-group {
+    padding: 10px;
+  }
+
+  .guide-item {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .guide-item-copy > strong {
+    font-size: 0.74rem;
+  }
+
+  .guide-item-copy p {
+    font-size: 0.68rem;
   }
 
   .itinerary-section,

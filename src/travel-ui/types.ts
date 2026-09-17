@@ -6,6 +6,8 @@ export type DayFilter = number | "all";
 export type CategoryFilter = Category | "all";
 export type MenuImageKey = "ramen" | "gyoza" | "rice" | "udon" | "tempura" | "curry" | "omurice" | "croquette" | "stew" | "soba" | "oyakodon" | "sushi" | "unagi" | "potato-salad" | "steak" | "karaage" | "sausage" | "pilaf" | "beer" | "coffee" | "pudding" | "pancake" | "katsu";
 export type MenuItem = { name: string; nameJa?: string; nameKo?: string; price: string; note?: string; imageKey?: MenuImageKey; imageUrl?: string };
+export type TripGuideKind = "must" | "warning" | "tip";
+export type TripGuideItem = { id: string; kind: TripGuideKind; title: string; body: string; dayNumber?: number; sourceUrls?: string[]; checkable?: boolean };
 
 export type Place = {
   id: string;
@@ -39,10 +41,10 @@ export type Place = {
 };
 
 export type TripDay = { id: string; dayNumber: number; dayOfMonth: number; city: string; title: string; places: Place[] };
-export type Trip = { title: string; days: TripDay[] };
+export type Trip = { title: string; days: TripDay[]; guideItems?: TripGuideItem[] };
 export type MapPlace = Place & { dayNumber: number; dayOfMonth: number; dayTitle: string };
 export type PlaceDraft = { name: string; category: Category; plannedTime: string; address: string; hours: string; closedDays: string; price: string; admission: string; latitude: string; longitude: string; googleMapsUrl: string; directionsUrl: string; notes: string; markVisited: boolean };
-export type LocalTripState = { selectedDay: number; completedPlaceIds: string[]; favoritePlaceIds: string[]; notes: Record<string, string>; reservationDoneIds: string[]; placeEdits: Record<string, Partial<Place>>; hiddenPlaceIds: string[]; addedPlaces: MapPlace[]; actualOnly: boolean };
+export type LocalTripState = { selectedDay: number; completedPlaceIds: string[]; completedGuideIds: string[]; favoritePlaceIds: string[]; notes: Record<string, string>; reservationDoneIds: string[]; placeEdits: Record<string, Partial<Place>>; hiddenPlaceIds: string[]; addedPlaces: MapPlace[]; actualOnly: boolean };
 export type TransferPayload = { schemaVersion: 1; kind: "travel-map-state"; tripSlug: string; tripTitle: string; exportedAt: string; tripSnapshot: Trip; state: LocalTripState };
 export type TransferMode = "export" | "import";
 export type TransferStatus = { tone: "info" | "success" | "error"; message: string } | null;

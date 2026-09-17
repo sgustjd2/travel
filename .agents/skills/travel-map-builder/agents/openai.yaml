@@ -1,4 +1,4 @@
 interface:
   display_name: "Travel Map Builder"
   short_description: "Build reusable mobile itinerary maps from travel plans"
-  default_prompt: "Use $travel-map-builder to turn my travel plan or travel-research.v1 packet into a new destination folder with the shared UI, editable local trip records, JSON share/import, and optional GitHub Pages deployment. Read README.md for the prompt format."
+  default_prompt: "Use $travel-map-builder to turn my travel plan or travel-research.v1 packet into a new destination folder with the shared UI, verified 준비·꿀팁 guideItems, editable local trip records, JSON share/import, and optional GitHub Pages deployment. Read README.md for the prompt format."

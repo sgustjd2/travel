@@ -1,4 +1,4 @@
 interface:
   display_name: "Travel UI"
   short_description: "Build consistent travel screens with shared UI components"
-  default_prompt: "Use $travel-ui to build or refine this repository's travel UI with the shared design system and reusable components. Read README.md for the UI-only prompt and preserve add/edit/delete and data-transfer entry points."
+  default_prompt: "Use $travel-ui to build or refine this repository's travel UI with the shared design system and reusable components. Preserve the 준비·꿀팁 TravelGuideSheet, add/edit/delete, and data-transfer entry points, then read README.md for the UI-only prompt."

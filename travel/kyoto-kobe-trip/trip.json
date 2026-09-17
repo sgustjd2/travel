@@ -1,5 +1,100 @@
 {
   "title": "교토·고베 여행",
+  "guideItems": [
+    {
+      "id": "flight-terminal-check",
+      "kind": "must",
+      "title": "항공편·터미널·귀국 시간 확정",
+      "body": "DAY 1 도착 시각과 DAY 4 출발 터미널·항공편을 확정하세요. 현재 공항 15:00 도착은 18:00 항공편을 가정한 값입니다.",
+      "dayNumber": 4,
+      "checkable": true
+    },
+    {
+      "id": "kyoto-lodging-checkin",
+      "kind": "must",
+      "title": "교토 숙소 주소·체크인 확인",
+      "body": "공유받은 핀을 예약 화면의 숙소명·정확한 주소·체크인 가능 시간·늦은 체크인 방법과 대조하세요.",
+      "dayNumber": 1,
+      "checkable": true
+    },
+    {
+      "id": "yamamoto-menzo-reservation",
+      "kind": "must",
+      "title": "야마모토 멘조우 예약 실패 처리",
+      "body": "이번 여행은 예약 실패로 기본 동선에서 제외하고 곤타로 오카자키점으로 변경했습니다. 야마모토를 다시 시도할 때만 온라인 예약 또는 09:00 당일 전화 접수를 확인하세요.",
+      "dayNumber": 2,
+      "sourceUrls": ["https://yamamotomenzou.com/", "https://yamamotomenzou.com/about.html"],
+      "checkable": true
+    },
+    {
+      "id": "kichi-kichi-reservation",
+      "kind": "must",
+      "title": "키치키치 예약·휴무 확인",
+      "body": "2026-09-20 19:00 2명 예약이 완료되었습니다. 18:40 도착 후 예약 확인 화면을 제시하고, 현장 안내와 메뉴는 방문 당일 확인하세요.",
+      "dayNumber": 2,
+      "sourceUrls": ["https://kichikichi.com/about-us/"],
+      "checkable": true
+    },
+    {
+      "id": "gontaro-lunch-reservation",
+      "kind": "must",
+      "title": "곤타로 오카자키점 점심 예약 문의",
+      "body": "야마모토 멘조우 예약 실패 대체 1순위입니다. 2026-09-20 11:30–12:30 점심을 계획했으므로 075-751-7880으로 2명 좌석과 영업 여부를 먼저 문의하세요. 일요일은 정기 휴무가 아닙니다.",
+      "dayNumber": 2,
+      "sourceUrls": ["https://gontaro.co.jp/kyoto/okazaki.php", "https://shop.gontaro.co.jp/smp/contact.php"],
+      "checkable": true
+    },
+    {
+      "id": "kobe-port-tower-ticket",
+      "kind": "must",
+      "title": "고베 포트타워 시간 지정권",
+      "body": "전망 플로어·옥상은 지정 시간 티켓이 필요합니다. 방문 전 잔여 좌석과 입장 시간을 예약하세요.",
+      "dayNumber": 3,
+      "sourceUrls": ["https://www.kobe-port-tower.com/en/ticket/"],
+      "checkable": true
+    },
+    {
+      "id": "day1-airport-buffer",
+      "kind": "warning",
+      "title": "DAY 1 공항 이동 여유",
+      "body": "17:00 간사이공항 도착 후 입국·수하물·열차 대기와 하루카 약 75분을 고려하면 교토역은 19:00–20:00 도착이 현실적입니다. 라멘은 지연 시 유연하게 바꾸세요.",
+      "dayNumber": 1,
+      "sourceUrls": ["https://www.kansai-airport.or.jp/access/from-airport/train"],
+      "checkable": true
+    },
+    {
+      "id": "kitano-herb-choice",
+      "kind": "warning",
+      "title": "기타노·허브원은 오전에 택1",
+      "body": "DAY 4 기타노 이진칸과 누노비키 허브원은 같은 오전 슬롯의 대체 코스입니다. 둘 다 넣거나 공항 도착 뒤 방문하지 마세요.",
+      "dayNumber": 4,
+      "checkable": true
+    },
+    {
+      "id": "early-photo-tip",
+      "kind": "tip",
+      "title": "대표 명소는 새벽 촬영",
+      "body": "청수사는 06:00 개문, 후시미 이나리는 이른 시간에 방문하도록 잡았습니다. 인파가 늘기 전 촬영을 우선하세요.",
+      "sourceUrls": ["https://www.kiyomizudera.or.jp/news/open-hour.php"],
+      "checkable": false
+    },
+    {
+      "id": "kyoto-zone-routing",
+      "kind": "tip",
+      "title": "교토는 구역별로 묶기",
+      "body": "동부권·교토역 아래·고베 항구권처럼 지역을 묶고, 교토 버스는 최소화하면서 도보·JR·지하철을 우선하세요.",
+      "sourceUrls": ["https://app.notion.com/p/_-3c042ccd5db6812ba1e0fcfa4381e293"],
+      "checkable": false
+    },
+    {
+      "id": "cash-and-ic-card",
+      "kind": "tip",
+      "title": "현금과 IC카드 함께 준비",
+      "body": "야마모토 멘조우는 현금 결제 안내가 있으므로 엔화를 준비하고, 교토·고베 이동은 IC카드 잔액도 미리 확인하세요.",
+      "sourceUrls": ["https://yamamotomenzou.com/"],
+      "checkable": false
+    }
+  ],
   "days": [
     {
       "id": "day-1",
@@ -22,7 +117,8 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kansai+International+Airport",
           "reservationStatus": "not_required",
-          "notes": "입국·수하물 수령 후 교토로 이동"
+          "operatingNote": "간사이공항에서 교토역까지 JR 특급 하루카 약 75분. 입국·수하물·열차 대기 시간을 별도로 잡고 당일 시간표를 확인하세요.",
+          "notes": "17:00 도착 기준 · 입국·수하물 수령 후 교토로 이동"
         },
         {
           "id": "kyoto-station-day1",
@@ -34,11 +130,11 @@
           "latitude": 34.9858,
           "longitude": 135.7588,
           "address": "901 Higashishiokojicho, Shimogyo Ward, Kyoto",
-          "plannedTime": "저녁 전",
+          "plannedTime": "19:00–20:00 도착·환승",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kyoto+Station",
           "reservationStatus": "not_required",
-          "notes": "교토 이동 허브 · 여유가 있으면 건축 스냅"
+          "notes": "공항 도착·입국·하루카 이동 후 도착하는 허브 · 도착 지연 시 식사를 먼저 조정"
         },
         {
           "id": "honke-daiichi-asahi",
@@ -49,7 +145,7 @@
           "latitude": 34.9878,
           "longitude": 135.7597,
           "address": "845 Higashishiokojicho, Shimogyo Ward, Kyoto",
-          "plannedTime": "19:30 전후",
+          "plannedTime": "20:00 전후 · 도착 지연 시 대체",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Honke+Daiichi+Asahi+Kyoto",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Honke+Daiichi+Asahi+Kyoto",
           "reservationStatus": "not_required",
@@ -64,9 +160,9 @@
             { "name": "교자 6개", "nameJa": "餃子 6個", "nameKo": "교자 6개", "price": "¥350", "imageKey": "gyoza" },
             { "name": "라이스(소)", "nameJa": "ライス（小）", "nameKo": "라이스(소)", "price": "¥200", "imageKey": "rice" }
           ],
-          "operatingNote": "JR 교토역에서 도보 약 4분. 대기가 생길 수 있습니다.",
+          "operatingNote": "예약 불가. 현장 줄서기·식권 방식으로 대기합니다. 06:00–25:00 영업, 목요일 휴무.",
           "infoSourceUrl": "https://www.honke-daiichiasahi.com/shop.html",
-          "notes": "1순위 저녁 · 대기가 길면 교토역 라멘코지로 변경"
+          "notes": "교토역 도착 후 바로 먹는 첫 식사 · 예약 불가로 현장 대기 전제 · 대기 시간을 고려해 도착 지연 시 역 식당으로 전환"
         },
         {
           "id": "kyoto-hotel-day1",
@@ -236,17 +332,17 @@
         },
         {
           "id": "yamamoto-menzo",
-          "order": 7,
+          "order": 13,
           "name": "야마모토 멘조우",
           "nameJa": "山元麺蔵",
           "category": "restaurant",
           "latitude": 35.0082,
           "longitude": 135.7867,
           "address": "34-5 Okazaki Minamigoshocho, Sakyo Ward, Kyoto",
-          "plannedTime": "11:30 점심",
+          "plannedTime": "예약 실패 · 대체 후보",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Yamamoto+Menzo+Kyoto",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Yamamoto+Menzo+Kyoto",
-          "reservationStatus": "required",
+          "reservationStatus": "check_required",
           "reservationUrl": "https://www.google.com/maps/search/?api=1&query=Yamamoto+Menzo+Kyoto",
           "menuPoint": "우동",
           "hours": "월·화·금 10:00–16:00 · 수 10:00–15:30 · 토·일·공휴일 10:00–17:00",
@@ -259,9 +355,12 @@
             { "name": "鶏ささみ天うどん", "nameJa": "鶏ささみ天うどん", "nameKo": "닭 안심 튀김 우동", "price": "약 ¥1,250", "imageKey": "udon" },
             { "name": "京カレーのつけ麺", "nameJa": "京カレーのつけ麺", "nameKo": "교토식 카레 츠케멘", "price": "약 ¥950", "imageKey": "curry" }
           ],
-          "operatingNote": "목요일·부정기 휴무, 면 소진 시 조기 종료. 예약 후에도 현장 대기가 생길 수 있습니다.",
+          "operatingNote": "이번 일정은 예약 실패로 기본 동선에서 제외했습니다. 재시도 시 목요일·부정기 휴무와 면 소진 조기 종료를 확인하세요.",
           "infoSourceUrl": "https://yamamotomenzou.com/about.html",
-          "notes": "1순위 점심 · 대체는 곤타로 오카자키점"
+          "optional": true,
+          "alternativeFor": "gontaro-okazaki",
+          "nearbyWalk": "곤타로 오카자키점에서 도보 약 2분",
+          "notes": "예약 실패로 기본 동선에서 제외 · 재시도할 때만 예약 가능 여부 확인"
         },
         {
           "id": "sanjo-pontocho",
@@ -273,7 +372,7 @@
           "latitude": 35.005,
           "longitude": 135.7709,
           "address": "Pontocho, Nakagyo Ward, Kyoto",
-          "plannedTime": "15:30–17:00",
+          "plannedTime": "15:30–17:30",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pontocho+Kyoto",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Pontocho+Kyoto",
           "reservationStatus": "not_required",
@@ -293,11 +392,11 @@
           "latitude": 35.0033,
           "longitude": 135.77,
           "address": "Kiyamachi, Nakagyo Ward, Kyoto",
-          "plannedTime": "17:30–19:00",
+          "plannedTime": "18:40 도착 · 19:00–20:00 예약",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kichi+Kichi+Kyoto",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kichi+Kichi+Kyoto",
-          "reservationStatus": "required",
-          "reservationUrl": "https://www.google.com/maps/search/?api=1&query=Kichi+Kichi+Kyoto",
+          "reservationStatus": "completed",
+          "reservationUrl": "https://kichikichi.com/about-us/",
           "menuPoint": "오므라이스",
           "hours": "평일 17:00–21:00 · 토·일·공휴일 12:00–14:00 / 17:00–21:00",
           "closedDays": "부정기",
@@ -309,9 +408,9 @@
             { "name": "오늘의 크림 고로케", "nameJa": "本日のクリームコロッケ", "nameKo": "오늘의 크림 고로케", "price": "¥2,000", "imageKey": "croquette" },
             { "name": "비프 스튜", "nameJa": "ビーフシチュー", "nameKo": "비프 스튜", "price": "¥4,000", "imageKey": "stew" }
           ],
-          "operatingNote": "예약제·부정기 휴무. 방문 전 예약 가능 여부를 확인하세요.",
+          "operatingNote": "예약제·부정기 휴무. 2026-09-20 19:00 2명 예약 확정(18:40 도착) · 입장·메뉴 안내는 현장 확인.",
           "infoSourceUrl": "https://kichikichi.com/en/menu/",
-          "notes": "1순위 저녁 · 대체는 사시스 교토 가와라마치"
+          "notes": "사용자 예약 확인 화면 기준 예약 성공 · 2026-09-20 19:00–20:00 좌석, 2명, 결제 합계 $26 · 취소 시 대체는 사시스 교토 가와라마치"
         },
         {
           "id": "kyoto-hotel-day2-return",
@@ -389,14 +488,17 @@
         },
         {
           "id": "gontaro-okazaki",
-          "order": 15,
+          "order": 7,
           "name": "곤타로 오카자키점",
           "category": "restaurant",
           "latitude": 35.011,
           "longitude": 135.7851,
-          "address": "Okazaki, Sakyo Ward, Kyoto",
-          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Gontaro+Okazaki+Kyoto",
-          "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Gontaro+Okazaki+Kyoto",
+          "address": "〒606-8334 京都府京都市左京区岡崎南御所町19",
+          "plannedTime": "11:30–12:30 점심",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Gontaro+Okazaki+19+Okazaki+Minamigoshocho+Kyoto",
+          "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Gontaro+Okazaki+19+Okazaki+Minamigoshocho+Kyoto",
+          "reservationStatus": "recommended",
+          "reservationUrl": "https://shop.gontaro.co.jp/smp/contact.php",
           "hours": "11:00–21:30",
           "closedDays": "수요일",
           "price": "¥1,000–¥2,400",
@@ -407,12 +509,9 @@
             { "name": "親子丼", "nameJa": "親子丼", "nameKo": "오야코동(닭고기·계란 덮밥)", "price": "¥1,500", "imageKey": "oyakodon" },
             { "name": "天ざる御膳", "nameJa": "天ざる御膳", "nameKo": "튀김 자루 정식", "price": "¥2,400", "imageKey": "tempura" }
           ],
-          "alternativeFor": "yamamoto-menzo",
-          "nearbyWalk": "야마모토 멘조우에서 도보 약 2분",
-          "operatingNote": "라스트오더 21:00. 수요일 휴무.",
+          "operatingNote": "11:00–21:30(L.O. 21:00), 수요일 휴무. 점심 좌석은 075-751-7880으로 예약 문의 권장.",
           "infoSourceUrl": "https://gontaro.co.jp/kyoto/okazaki.php",
-          "optional": true,
-          "notes": "점심 대체 식당"
+          "notes": "야마모토 멘조우 예약 실패 대체 1순위 · 난젠지 수로각에서 이어지는 오카자키 권역 · 점심 후 산조·폰토초로 이동"
         },
         {
           "id": "sasis-kyoto",
@@ -464,7 +563,7 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=68-13+Hachijominamotocho+Minami+Ward+Kyoto+601-8477",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.9834591,135.7443191",
           "reservationStatus": "check_required",
-          "notes": "사용자가 공유한 숙소 핀 기준 · 출발 전 예약 정보와 대조"
+          "notes": "05:30 출발 후 후시미 이나리 촬영 · 촬영 뒤 숙소 복귀·체크아웃·짐 회수 시간을 별도로 확보하고 고베 이동"
         },
         {
           "id": "fushimi-inari",
@@ -493,11 +592,11 @@
           "latitude": 34.9858,
           "longitude": 135.7588,
           "address": "901 Higashishiokojicho, Shimogyo Ward, Kyoto",
-          "plannedTime": "10:00 전후",
+          "plannedTime": "08:45–09:15 고베행",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kyoto+Station",
           "reservationStatus": "not_required",
-          "notes": "체크아웃 후 고베 이동 허브"
+          "notes": "후시미 이나리·숙소 체크아웃 후 고베행 출발 허브 · 교토역→산노미야는 JR 신쾌속 약 50분대 기준으로 당일 시간표 확인"
         },
         {
           "id": "sannomiya",
@@ -509,11 +608,11 @@
           "latitude": 34.6941,
           "longitude": 135.1956,
           "address": "Sannomiyacho, Chuo Ward, Kobe",
-          "plannedTime": "11:00 전후",
+          "plannedTime": "10:30–11:00 도착",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sannomiya+Station+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Sannomiya+Station+Kobe",
           "reservationStatus": "not_required",
-          "notes": "고베 도착 후 항구 방향으로 이동"
+          "notes": "교토역에서 JR 신쾌속 이동 후 도착 · 점심 예약 시 역에서 식당까지 이동·짐 보관 시간을 포함"
         },
         {
           "id": "steak-ishida",
@@ -539,7 +638,7 @@
             { "name": "고베규 스테이크 런치", "nameJa": "神戸牛ステーキランチ", "nameKo": "고베규 스테이크 런치", "price": "가격 확인 필요", "imageKey": "steak" },
             { "name": "고베규 스테이크 코스", "nameJa": "神戸牛ステーキ코스", "nameKo": "고베규 스테이크 코스", "price": "가격 확인 필요", "imageKey": "steak" }
           ],
-          "operatingNote": "화요일·부정기 휴무. 지점별 영업시간과 메뉴가 다를 수 있습니다.",
+          "operatingNote": "점심 11:30–15:00(L.O. 14:00). 화요일·부정기 휴무이며 지점별 영업시간·메뉴가 다르므로 12:00 좌석 예약을 강하게 권장합니다.",
           "infoSourceUrl": "https://kobe-ishidaya.com/feature/steak/",
           "notes": "1순위 점심 · 대체는 스테이크랜드 고베"
         },
@@ -596,7 +695,7 @@
           "plannedTime": "16:00–17:00",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kobe+Port+Tower",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kobe+Port+Tower",
-          "reservationStatus": "recommended",
+          "reservationStatus": "check_required",
           "reservationUrl": "https://www.google.com/maps/search/?api=1&query=Kobe+Port+Tower",
           "photoPoint": "항구 실루엣 · 해질녘",
           "hours": "09:00–23:00 · 최종 입장 22:30",
@@ -604,7 +703,7 @@
           "admission": "성인 ¥1,000–¥1,200 · 초중학생 ¥400–¥500",
           "operatingNote": "전망대·옥상은 지정 시간 티켓 필요. 저층부는 무료입니다.",
           "infoSourceUrl": "https://www.kobe-port-tower.com/en/",
-          "notes": "운영시간과 입장 가능 여부 확인"
+          "notes": "전망 플로어·옥상은 지정 시간 티켓이 필요하므로 방문 전 예약·잔여 좌석 확인 · 항구 동선은 구 거류지→메리켄→포트타워→하버랜드 순서 유지"
         },
         {
           "id": "harborland-mosaic",
@@ -639,7 +738,8 @@
           "plannedTime": "19:30 저녁",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=New+Munchen+Hafenburg+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=New+Munchen+Hafenburg+Kobe",
-          "reservationStatus": "not_required",
+          "reservationStatus": "recommended",
+          "reservationUrl": "https://newmunchen-harbor.gorp.jp/",
           "menuPoint": "맥주와 저녁",
           "hours": "11:00–22:00 · L.O. 21:30",
           "closedDays": "확인 필요",
@@ -651,9 +751,9 @@
             { "name": "비프 필라프", "nameJa": "ビーフピラフ", "nameKo": "비프 필라프", "price": "약 ¥1,480", "imageKey": "pilaf" },
             { "name": "생맥주", "nameJa": "生ビール", "nameKo": "생맥주", "price": "가격 확인 필요", "imageKey": "beer" }
           ],
-          "operatingNote": "하버랜드 umie MOSAIC 3F. 최신 메뉴·가격은 매장 확인.",
-          "infoSourceUrl": "https://umie.jp/shops/detail/112",
-          "notes": "항구 동선을 벗어나지 않는 저녁"
+          "operatingNote": "하버랜드 umie MOSAIC 3F. 19:30 저녁은 078-360-0770으로 전화 예약 문의 권장(창가·혼잡 시간대). 최신 메뉴·가격은 매장 확인.",
+          "infoSourceUrl": "https://newmunchen-harbor.gorp.jp/",
+          "notes": "항구 동선을 벗어나지 않는 저녁 · 예약하지 않으면 현장 대기와 좌석 미확정 가능"
         },
         {
           "id": "kobe-hotel-day3",
@@ -682,6 +782,8 @@
           "address": "Sannomiyacho, Chuo Ward, Kobe",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Steakland+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Steakland+Kobe",
+          "reservationStatus": "recommended",
+          "reservationUrl": "https://steakland-kobe.jp/",
           "hours": "평일 11:00–22:00 · 토·일·공휴일 11:00–22:00",
           "closedDays": "확인 필요",
           "price": "런치 ¥1,080~ · 코스 ¥2,880~",
@@ -801,8 +903,7 @@
           "plannedTime": "12:00 점심",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Grill+Ippei+Sannomiya+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Grill+Ippei+Sannomiya+Kobe",
-          "reservationStatus": "recommended",
-          "reservationUrl": "https://www.google.com/maps/search/?api=1&query=Grill+Ippei+Sannomiya+Kobe",
+          "reservationStatus": "not_required",
           "menuPoint": "양식 런치",
           "hours": "11:00–15:00 (L.O. 14:30) / 17:00–20:30 (L.O. 20:00)",
           "closedDays": "수요일",
@@ -813,7 +914,7 @@
             { "name": "오므라이스", "nameJa": "オムライス", "nameKo": "오므라이스", "price": "가격 확인 필요", "imageKey": "omurice" },
             { "name": "양식 런치", "nameJa": "洋食ランチ", "nameKo": "양식 런치", "price": "가격 확인 필요", "imageKey": "katsu" }
           ],
-          "operatingNote": "예약 불가. 입구 발권기에서 정리권을 받고 대기하는 방식입니다.",
+          "operatingNote": "예약 불가. 입구 발권기에서 정리권을 받고 대기합니다. 혼잡 시 L.O. 전 발권이 종료될 수 있습니다.",
           "infoSourceUrl": "https://grill-ippei.co.jp/shop/sannomiya/",
           "notes": "점심 후 산노미야에서 짐 회수"
         },
@@ -867,10 +968,13 @@
           "hours": "평일 로프웨이 09:30–16:45 · 허브원 10:00–17:00",
           "price": "왕복 성인 ¥2,500 · 편도 ¥1,900",
           "admission": "로프웨이+허브원 포함 · 야간 왕복 ¥2,000",
-          "operatingNote": "최종 입장 16:30. 주말·공휴일 야간 영업 여부와 강풍 운휴를 확인하세요.",
           "infoSourceUrl": "https://www.kobeherb.com/en/hours-of-operation-and-fares/",
           "optional": true,
-          "notes": "기타노 대체 코스 · 기본 Route에는 포함하지 않음"
+          "alternativeFor": "kitano-ijinkan",
+          "nearbyWalk": "기타노 이진칸과 택1",
+          "plannedTime": "09:30–11:30 (기타노와 택1)",
+          "operatingNote": "최종 입장 16:30. 기타노 이진칸과 같은 오전 슬롯의 대체 코스로만 선택하세요. 주말·공휴일 야간 영업 여부와 강풍 운휴를 확인하세요.",
+          "notes": "기타노 이진칸 대체 코스 · 공항 이동 뒤에는 배치하지 않음 · 기본 Route에는 포함하지 않음"
         }
       ]
     }

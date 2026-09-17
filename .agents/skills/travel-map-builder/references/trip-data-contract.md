@@ -22,6 +22,28 @@ Use the shared TypeScript types in `src/travel-ui/types.ts` as the final authori
 
 Keep `dayNumber`, `dayOfMonth`, and each place `order` numeric. Use stable kebab-case IDs. If lodging repeats on different days, give each itinerary occurrence its own ID.
 
+## Preparation guide items
+
+`guideItems` is the shared source for the quick-menu `준비·꿀팁` sheet. Put trip-wide or day-specific preparation information here instead of adding destination-specific UI fields.
+
+```json
+{
+  "guideItems": [
+    {
+      "id": "yamamoto-menzo-reservation",
+      "kind": "must",
+      "title": "야마모토 멘조 예약 확인",
+      "body": "온라인 예약은 방문 3일 전 0시부터 가능합니다. 확인하지 못한 내용은 확인 필요로 표시합니다.",
+      "dayNumber": 2,
+      "sourceUrls": ["https://example.com/official"],
+      "checkable": true
+    }
+  ]
+}
+```
+
+`kind`는 `must`(필수 준비), `warning`(주의할 점), `tip`(여행 꿀팁) 중 하나만 사용합니다. `id`는 안정적인 kebab-case로 만들고, 준비 완료를 저장할 항목은 `checkable: true`(생략해도 true)로 둡니다. 단순 안내는 `checkable: false`로 둡니다. 예약·입장·교통·휴무·날씨/계절·결제·짐·접근성처럼 실제 행동에 영향을 주는 내용만 조사해 추가하고, 확인할 수 없는 내용은 본문에 `확인 필요`와 사유를 명시합니다. 변동 정보에는 `sourceUrls`를 남깁니다. 앱의 로컬 기록에는 사용자가 체크한 ID를 `completedGuideIds`로 저장합니다.
+
 ## Place
 
 ```json

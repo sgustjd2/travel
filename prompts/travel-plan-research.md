@@ -32,10 +32,11 @@
 출력 규칙:
 1. 먼저 `조사 요약:` 아래에 추천 일정의 날짜별 요약과 조사하지 못한 항목을 짧게 보여줘.
 2. 그 다음 `JSON:` 아래에 유효한 JSON 객체 하나를 출력해. JSON 내부에는 설명, Markdown 주석, trailing comma를 넣지 마.
-3. 최상위 키는 반드시 `schemaVersion`, `researchedAt`, `trip`, `lodging`, `fixedEvents`, `days`, `researchLog`를 사용하고 `schemaVersion`은 정확히 `travel-research.v1`로 해.
+3. 최상위 키는 반드시 `schemaVersion`, `researchedAt`, `trip`, `lodging`, `fixedEvents`, `guideItems`, `days`, `researchLog`를 사용하고 `schemaVersion`은 정확히 `travel-research.v1`로 해.
 4. `days[].stops[]`에는 `order`, `name`, `nameJa`, `category`, `plannedTime`, `purpose`, `address`, `googleMapsUrl`, `directionsUrl`, `coordinates`, `hours`, `lastOrder`, `closedDays`, `price`, `admission`, `reservationStatus`, `reservationUrl`, `infoSourceUrl`, `image`, `menu`, `alternatives`, `notes`, `confidence`, `needsConfirmation`을 넣어.
 5. `category`는 `photo`, `restaurant`, `cafe`, `hotel`, `station`, `airport`, `logistics` 중 하나만 사용해. `coordinates`는 `{ "lat": number, "lng": number }` 또는 null로 해.
 6. 이미지 객체는 `pageUrl`, `imageUrl`, `rightsNote`; 메뉴 항목은 `nameJa`, `nameKo`, `price`, `note`, `sourceUrl`, `image`를 사용해. 모르는 값은 빈 문자열 대신 null 또는 `확인 필요`로 적어.
+7. `guideItems`에는 예약·입장·교통·휴무·날씨/계절·결제·짐·접근성 관련 준비 정보를 넣어. 각 항목은 `id`, `kind`(`must`/`warning`/`tip`), `title`, `body`, 필요한 `dayNumber`, `sourceUrls`, `checkable`을 사용하고, 확인 불가 내용은 `확인 필요`와 이유를 body에 적어.
 
 여행 입력:
 [위 입력 항목을 실제 정보로 채워서 붙여넣기]

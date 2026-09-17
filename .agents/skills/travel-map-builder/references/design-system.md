@@ -16,6 +16,7 @@
 - 장소 카드는 둥근 흰색 surface, 얇은 경계선, 왼쪽 category accent, category 색상의 순번 원, 카테고리 아이콘, 오른쪽 대표 이미지·즐겨찾기·방문 체크로 구성합니다.
 - 상세 정보는 새 페이지나 일반 desktop modal이 아니라 휴대폰 화면 안의 스크롤 가능한 `BottomSheet`입니다.
 - 하단에는 일정·지도·예약·저장 4개 항목의 고정 bottom navigation을 둡니다.
+- 헤더 빠른 메뉴에는 `준비·꿀팁`을 두고 `TravelGuideSheet`에서 `must`·`warning`·`tip` 그룹을 구분합니다. 체크 가능한 준비 항목은 완료 상태를 표시하고, 긴 목록은 시트 내부에서 끝까지 스크롤됩니다.
 - 긴 일정 목록을 읽을 때 하단 내비게이션을 침범하지 않는 floating `맨 위로 이동` 버튼을 제공하고, 스크롤이 충분히 내려간 뒤에만 표시합니다.
 
 실제 캡처는 다음 파일을 시각 검수 기준으로 사용합니다.
@@ -52,6 +53,7 @@ Prototype
 ├─ ScrollToTopButton
 ├─ TravelBottomNav
 ├─ PlaceDetailSheet / PlaceEditorSheet
+├─ TravelGuideSheet
 └─ TravelDataTransferSheet
 ```
 
@@ -61,6 +63,7 @@ Prototype
 | `TravelBottomNav` | `view`, `onViewChange` | 일정·지도·예약·저장 고정 메뉴 |
 | `TravelCategoryLegend` | `categories: CategoryConfig[]` | 공통 카테고리 색상·라벨 범례 |
 | `TravelPlaceCard` | `place`, `category`, 상태, `preview`, 액션 콜백 | 장소 카드의 번호·아이콘·정보·이미지·체크·즐겨찾기 |
+| `TravelGuideSheet` | `items`, `completedIds`, 열기/닫기·토글 콜백 | 필수 준비·주의할 점·여행 꿀팁을 색상 그룹으로 보여주는 체크리스트 시트 |
 | `TravelDataTransferSheet` | transfer 상태와 복사/공유/파일 콜백 | JSON 기록 내보내기·가져오기 BottomSheet |
 
 `PlacePreview`처럼 여행 데이터에 따라 이미지를 선택하는 얇은 어댑터는 허용하지만 카드 전체 UI를 다시 만들 수 없습니다. 공통 UI를 수정할 때는 `components.tsx` 또는 `index.ts`와 [component-contract.md](component-contract.md)를 함께 갱신하고 기존 교토·고베 화면에서 실제 사용 여부를 확인합니다.
@@ -119,6 +122,7 @@ Prototype
 - 맨 위로 이동 버튼은 하단 내비게이션 위에 고정되고, 280px 이하의 초기 스크롤에서는 보이지 않으며, 활성화 후 누르면 `MobileScroll`의 최상단으로 돌아갑니다.
 - 넓은 시뮬레이터에서도 앱 콘텐츠는 휴대폰 화면 안에서만 확장되고, 임의의 desktop dashboard로 변하지 않습니다.
 - 지도 마커 선택 시 상세 시트가 닫힌 상태로 카드가 지도 아래에 노출되고, 카드 선택 시 상세 시트 안에서 메뉴·이미지·대체 식당·메모를 끝까지 스크롤할 수 있습니다.
+- 준비·꿀팁 시트가 360px 폭에서도 좌우 overflow 없이 열리고, 체크/해제 상태가 새로고침과 JSON 기록 복원 후 유지되는지 확인합니다.
 - 빠른 메뉴의 여행 데이터 내보내기에서 JSON을 카카오톡/클립보드/파일로 보관하고, 여행 데이터 가져오기에서 같은 여행의 JSON을 붙여넣거나 파일로 선택해 방문 기록·메모·수정을 복원할 수 있습니다. 다른 `destination-slug`의 데이터는 적용하지 않습니다.
 - 첫 번째와 마지막 장소, 숙소 시작·종료 반복, 이미지가 없는 장소, 긴 한국어 장소명, 두 줄 메뉴명을 확인합니다.
 
