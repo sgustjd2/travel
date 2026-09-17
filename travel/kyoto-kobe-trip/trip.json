@@ -39,7 +39,7 @@
       "id": "gontaro-lunch-reservation",
       "kind": "must",
       "title": "곤타로 오카자키점 점심 예약 문의",
-      "body": "야마모토 멘조우 예약 실패 대체 1순위입니다. 2026-09-20 11:30–12:30 점심을 계획했으므로 075-751-7880으로 2명 좌석과 영업 여부를 먼저 문의하세요. 일요일은 정기 휴무가 아닙니다.",
+      "body": "야마모토 멘조우 예약 실패 대체 1순위입니다. 2026-09-20 11:00–12:00 점심을 계획했으므로 075-751-7880으로 2명 좌석과 영업 여부를 먼저 문의하세요. 일요일은 정기 휴무가 아닙니다.",
       "dayNumber": 2,
       "sourceUrls": ["https://gontaro.co.jp/kyoto/okazaki.php", "https://shop.gontaro.co.jp/smp/contact.php"],
       "checkable": true
@@ -329,7 +329,7 @@
           "latitude": 35.0118,
           "longitude": 135.7933,
           "address": "Nanzenji Fukuchicho, Sakyo Ward, Kyoto",
-          "plannedTime": "10:00–10:45",
+          "plannedTime": "09:45–10:30",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nanzenji+Suirokaku+Kyoto",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Nanzenji+Suirokaku+Kyoto",
           "reservationStatus": "not_required",
@@ -565,7 +565,7 @@
           "latitude": 35.011,
           "longitude": 135.7851,
           "address": "〒606-8334 京都府京都市左京区岡崎南御所町19",
-          "plannedTime": "11:30–12:30 점심",
+          "plannedTime": "11:00–12:00 점심",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Gontaro+Okazaki+19+Okazaki+Minamigoshocho+Kyoto",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Gontaro+Okazaki+19+Okazaki+Minamigoshocho+Kyoto",
           "reservationStatus": "recommended",
@@ -580,9 +580,9 @@
             { "name": "親子丼", "nameJa": "親子丼", "nameKo": "오야코동(닭고기·계란 덮밥)", "price": "¥1,500", "imageKey": "oyakodon" },
             { "name": "天ざる御膳", "nameJa": "天ざる御膳", "nameKo": "튀김 자루 정식", "price": "¥2,400", "imageKey": "tempura" }
           ],
-          "operatingNote": "11:00–21:30(L.O. 21:00), 수요일 휴무. 점심 좌석은 075-751-7880으로 예약 문의 권장.",
+          "operatingNote": "11:00–21:30(L.O. 21:00), 수요일 휴무. 11시 첫 입장을 원하면 075-751-7880으로 2명 좌석을 예약 문의하고, 무예약이면 10:40–10:45 도착을 권장합니다.",
           "infoSourceUrl": "https://gontaro.co.jp/kyoto/okazaki.php",
-          "notes": "야마모토 멘조우 예약 실패 대체 1순위 · 난젠지 수로각에서 이어지는 오카자키 권역 · 점심 후 산조·폰토초로 이동"
+          "notes": "야마모토 멘조우 예약 실패 대체 1순위 · 10:30부터 도보 이동·대기 후 11시 첫 입장 · 점심 후 우메조노로 이동"
         },
         {
           "id": "sasis-kyoto",
