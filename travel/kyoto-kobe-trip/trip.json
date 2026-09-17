@@ -144,6 +144,42 @@
       "checkable": true
     },
     {
+      "id": "day1-public-transit-route",
+      "kind": "tip",
+      "title": "DAY 1 KIX→교토는 JR 하루카",
+      "body": "간사이공항에서 JR 특급 하루카를 타고 교토역까지 이동하세요. 17:00 도착은 입국·수하물·열차 대기를 포함한 계획이며, 교토역 도착 후 본가 다이이치아사히까지는 도보권입니다. 지연되면 라멘과 야경을 순서대로 줄이세요.",
+      "dayNumber": 1,
+      "sourceUrls": ["https://www.kansai-airport.or.jp/access/from-airport/train"],
+      "checkable": false
+    },
+    {
+      "id": "day2-public-transit-route",
+      "kind": "tip",
+      "title": "DAY 2 동부 교토는 도보 우선·긴 구간만 대중교통",
+      "body": "청수사→산넨자카→야사카탑→기온 시라카와는 도보로 이어가고, 기온에서 난젠지까지 힘들면 산조게이한 환승 후 게아게역을 이용하세요. 난젠지→오멘 긴카쿠지는 도보 약 25분, 오멘→우메조노는 버스 경로를 먼저 확인하고 혼잡하면 택시 15–20분으로 전환합니다.",
+      "dayNumber": 2,
+      "sourceUrls": ["https://www2.city.kyoto.lg.jp/koho/eng/", "https://www.google.com/maps/"],
+      "checkable": false
+    },
+    {
+      "id": "day3-public-transit-route",
+      "kind": "must",
+      "title": "DAY 3 교토→고베는 JR 신쾌속 + 지하철",
+      "body": "후시미 이나리 촬영 후 숙소에서 전날 밤 짐을 모두 정리하고 체크아웃하세요. 교토역에서 JR 신쾌속으로 산노미야까지 약 50분대 이동 후, 고베 시영 지하철 산노미야→신코베와 도보 약 5분으로 허브원에 갑니다. 허브원 관람은 약 1시간 30분이므로 기타노 이진칸은 함께 넣지 않습니다.",
+      "dayNumber": 3,
+      "sourceUrls": ["https://www.westjr.co.jp/global/en/timetable/search_jp/", "https://kotsu.city.kobe.lg.jp/english/en-subway-map/", "https://www.kobeherb.com/access/", "https://www.kobeherb.com/faq/"],
+      "checkable": true
+    },
+    {
+      "id": "day4-public-transit-route",
+      "kind": "must",
+      "title": "DAY 4 고베→난바→KIX는 환승을 줄이기",
+      "body": "고베 숙소의 정확한 위치가 확인되면 먼저 고베산노미야까지 택시 또는 시내버스로 이동하고, 한신 고베산노미야에서 오사카난바행 직통 열차를 우선하세요. 난카이 난바에 짐을 맡긴 뒤 쿠로몬·도톤보리·난바 파크스를 모두 도보권으로 보고, 12:30 전후 Rapi:t 또는 공항급행으로 KIX에 출발합니다.",
+      "dayNumber": 4,
+      "sourceUrls": ["https://www.hanshin.co.jp/press/detail/003914.html", "https://www.nankai.co.jp/en_railway/access-fromkix", "https://osaka-info.jp/en/spot/kuromon-market/", "https://osaka-info.jp/en/spot/dotonbori/"],
+      "checkable": true
+    },
+    {
       "id": "early-photo-tip",
       "kind": "tip",
       "title": "대표 명소는 새벽 촬영",
@@ -190,8 +226,8 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kansai+International+Airport",
           "reservationStatus": "not_required",
-          "operatingNote": "간사이공항에서 교토역까지 JR 특급 하루카 약 75분. 입국·수하물·열차 대기 시간을 별도로 잡고 당일 시간표를 확인하세요.",
-          "notes": "17:00 도착 기준 · 입국·수하물 수령 후 교토로 이동"
+          "operatingNote": "대중교통: 간사이공항에서 JR 특급 하루카로 교토역까지 약 75분. 입국·수하물·열차 대기 시간을 별도로 잡고 당일 시간표를 확인하세요.",
+          "notes": "17:00 도착 기준 · 입국·수하물 수령 후 JR 하루카 탑승 · 지연 시 뒤 일정을 순서대로 늦춤"
         },
         {
           "id": "kyoto-station-day1",
@@ -207,7 +243,7 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kyoto+Station",
           "reservationStatus": "not_required",
-          "notes": "공항 도착·입국·하루카 이동 후 도착하는 허브 · 도착 지연 시 식사를 먼저 조정"
+          "notes": "JR 하루카 하차 허브 · 본가 다이이치아사히는 역에서 도보권 · 도착 지연 시 식사를 먼저 조정"
         },
         {
           "id": "honke-daiichi-asahi",
@@ -251,7 +287,7 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=68-13+Hachijominamotocho+Minami+Ward+Kyoto+601-8477",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.9834591,135.7443191",
           "reservationStatus": "check_required",
-          "notes": "사용자가 공유한 숙소 핀 기준 · 예약 정보와 주소 최종 대조"
+          "notes": "교토역에서 짐이 있으면 택시 우선 · 사용자가 공유한 숙소 핀 기준이라 예약 정보와 주소 최종 대조"
         },
         {
           "id": "kamogawa-shijo-night",
@@ -274,7 +310,7 @@
           "photoPoint": "시조대교와 가모강 수면에 비치는 폰토초·가와라마치 불빛",
           "operatingNote": "가모강은 구간이 넓어 이 일정은 시조대교 주변으로 기록했습니다. 야간에는 강변 계단과 수변 안전에 유의하세요.",
           "infoSourceUrl": "https://www.japan.travel/en/spot/1183/",
-          "notes": "숙소에 짐을 푼 뒤 방문 · JNTO가 소개한 야간 가모강 산책 구간 · 대표 이미지: Wikimedia Commons(CC BY-SA)"
+          "notes": "숙소에 짐을 푼 뒤 방문 · 밤에는 피로를 고려해 숙소→시조대교 택시 또는 지도 앱 대중교통 경로 확인 · 대표 이미지: Wikimedia Commons(CC BY-SA)"
         }
       ]
     },
@@ -295,11 +331,11 @@
           "latitude": 34.9834591,
           "longitude": 135.7443191,
           "address": "교토시 미나미구 하치조미나모토초 68-13 (601-8477)",
-          "plannedTime": "06:00 출발",
+          "plannedTime": "06:00 출발 · 청수사까지 이동",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=68-13+Hachijominamotocho+Minami+Ward+Kyoto+601-8477",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.9834591,135.7443191",
           "reservationStatus": "check_required",
-          "notes": "사용자가 공유한 숙소 핀 기준 · 출발 전 예약 정보와 대조"
+          "notes": "숙소→청수사는 새벽 택시 우선(도보는 약 30–40분 예상) · 출발 전 예약 정보와 대조"
         },
         {
           "id": "kiyomizu-dera",
@@ -321,7 +357,7 @@
           "operatingNote": "특별 야간관람 기간에는 시간과 요금이 달라질 수 있습니다.",
           "infoSourceUrl": "https://www.kiyomizudera.or.jp/en/location/",
           "photoPoint": "목조 무대 · 이른 아침 인파 없는 전경",
-          "notes": "대표 사찰 전경을 가장 먼저 촬영"
+          "notes": "숙소에서 택시로 이동 · 대표 사찰 전경을 가장 먼저 촬영"
         },
         {
           "id": "sannenzaka",
@@ -341,7 +377,7 @@
           "price": "무료",
           "admission": "무료 야외 관람",
           "photoPoint": "골목 원근감 · 전통가옥",
-          "notes": "청수사에서 걸어서 이어지는 골목"
+          "notes": "청수사에서 도보 약 10–15분으로 이어지는 골목"
         },
         {
           "id": "yasaka-pagoda",
@@ -361,7 +397,7 @@
           "price": "무료",
           "admission": "무료 야외 관람",
           "photoPoint": "탑과 골목이 만나는 구도",
-          "notes": "산넨자카에서 자연스럽게 연결"
+          "notes": "산넨자카에서 도보 약 5–10분으로 연결"
         },
         {
           "id": "gion-shirakawa",
@@ -381,7 +417,7 @@
           "price": "무료",
           "admission": "무료 야외 관람",
           "photoPoint": "수변 · 다리 · 전통 건축",
-          "notes": "아침빛이 남아 있을 때 수변 장면 촬영"
+          "notes": "야사카탑에서 도보 약 20–25분 · 아침빛이 남아 있을 때 수변 장면 촬영"
         },
         {
           "id": "nanzenji-suirokaku",
@@ -401,7 +437,7 @@
           "price": "무료 구간 있음",
           "admission": "수로각 주변 무료 · 사찰 유료 구역 별도",
           "photoPoint": "붉은 벽돌 아치 · 반복 프레임",
-          "notes": "기온에서 이동 후 반복되는 아치 프레임"
+          "notes": "기온에서 도보 약 25–30분 · 피로하면 산조게이한역→게아게역(지하철) 후 도보로 대체"
         },
         {
           "id": "yamamoto-menzo",
@@ -493,7 +529,7 @@
           ],
           "operatingNote": "공식 안내 기준 금·토·일·공휴일 10:30–16:00(L.O.15:30), 17:00–20:30(L.O.20:00), 목요일 부정기 휴무입니다. 좌석 예약은 이메일이 아닌 075-771-8994로 직접 확인하세요. 난젠지에서 북쪽 이동이 추가되므로 11:30 입장 기준 이동 시간을 확보하고, 점심 후 우메조노로 이동하세요.",
           "infoSourceUrl": "https://omen.co.jp/pages/menus",
-          "notes": "곤타로 9/20 일요일 예약 불가 대체 · 우동과 1~2천 엔대 예산을 유지하는 기본 점심"
+          "notes": "난젠지→오멘은 도보 약 25분 · 곤타로 9/20 일요일 예약 불가 대체 · 우동과 1~2천 엔대 예산을 유지하는 기본 점심"
         },
         {
           "id": "umezono-kiyomizu",
@@ -522,7 +558,7 @@
             { "name": "みたらし団子と抹茶わらび餅", "nameJa": "みたらし団子と抹茶わらび餅", "nameKo": "미타라시 당고 + 말차 와라비모찌 세트", "price": "1000円", "imageUrl": "https://umezono-kyoto.com/wp/wp-content/uploads/2016/03/kiyomizu_DMwarabi-.jpg" },
             { "name": "宇治金時白玉＋抹茶わらび餅", "nameJa": "宇治金時白玉＋抹茶わらび餅", "nameKo": "우지 금시 시라타마 빙수 + 말차 와라비모찌", "price": "1680円" }
           ],
-          "notes": "산넨자카 초입 · 11:00 개점이라 06–08시 동부 출사 때는 들를 수 없어 점심 이후 공백 시간에 배치. 오카자키(점심)→버스·택시 15~20분→우메조노→도보 20~25분 기온·산조 연결"
+          "notes": "오멘→우메조노는 버스 경로를 먼저 확인하고, 13:20 도착이 어려우면 택시 15–20분으로 전환 · 이후 산조까지 도보 약 20–25분"
         },
         {
           "id": "sanjo-pontocho",
@@ -542,7 +578,7 @@
           "price": "무료",
           "admission": "무료 야외 관람",
           "photoPoint": "좁은 골목과 저녁 전 빛",
-          "notes": "저녁 식사 전 산책·스냅"
+          "notes": "우메조노에서 도보 약 20–25분 · 저녁 식사 전 산책·스냅"
         },
         {
           "id": "kichi-kichi",
@@ -572,7 +608,7 @@
           ],
           "operatingNote": "예약제·부정기 휴무. 2026-09-20 19:00 2명 예약 확정(18:40 도착) · 입장·메뉴 안내는 현장 확인.",
           "infoSourceUrl": "https://kichikichi.com/en/menu/",
-          "notes": "사용자 예약 확인 화면 기준 예약 성공 · 2026-09-20 19:00–20:00 좌석, 2명, 결제 합계 $26 · 취소 시 대체는 사시스 교토 가와라마치"
+          "notes": "산조·폰토초에서 도보 약 5–10분 · 사용자 예약 확인 화면 기준 예약 성공 · 2026-09-20 19:00–20:00 좌석, 2명, 결제 합계 $26 · 취소 시 대체는 사시스 교토 가와라마치"
         },
         {
           "id": "kyoto-yakitori-seisakusho",
@@ -605,7 +641,7 @@
             { "name": "鶏スープだし巻き", "nameJa": "鶏スープだし巻き", "nameKo": "닭육수 다시마키 계란말이", "price": "715円", "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec4_js4.jpg" },
             { "name": "親子丼", "nameJa": "親子丼", "nameKo": "오야코동 (마무리 메뉴)", "price": "880円", "imageUrl": "https://www.yakitoriseisakusyo.com/shared/img/menu/sec4_js6.jpg" }
           ],
-          "notes": "키치키치 19:00–20:00 예약 종료 후 2차 · 도보 5분(직선 약 360m). 17:00 개점이라 저녁에만 가능하고 점심에는 못 들름. 꼬치는 기본 소금(게랑드), 아부리야키는 유자후추와 함께. 카드·PayPay 가능, 주차 없음"
+          "notes": "키치키치 19:00–20:00 예약 종료 후 도보 약 5분(직선 약 360m) · 17:00 개점이라 저녁에만 가능하고 점심에는 못 들름. 꼬치는 기본 소금(게랑드), 아부리야키는 유자후추와 함께. 카드·PayPay 가능, 주차 없음"
         },
         {
           "id": "kyoto-hotel-day2-return",
@@ -805,11 +841,11 @@
           "latitude": 34.9834591,
           "longitude": 135.7443191,
           "address": "교토시 미나미구 하치조미나모토초 68-13 (601-8477)",
-          "plannedTime": "05:30 출발",
+          "plannedTime": "05:30 출발 · 07:15 재도착",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=68-13+Hachijominamotocho+Minami+Ward+Kyoto+601-8477",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.9834591,135.7443191",
           "reservationStatus": "check_required",
-          "notes": "05:30 출발 후 후시미 이나리 촬영 · 촬영 뒤 숙소 복귀·체크아웃·짐 회수 시간을 별도로 확보하고 고베 이동"
+          "notes": "숙소→후시미 이나리는 새벽 택시 또는 JR 경로를 전날 확인 · 05:30 출발 후 촬영 · 전날 밤 짐을 모두 정리하고 복귀 즉시 체크아웃"
         },
         {
           "id": "fushimi-inari",
@@ -821,12 +857,12 @@
           "latitude": 34.9671,
           "longitude": 135.7727,
           "address": "68 Fukakusa Yabunouchicho, Fushimi Ward, Kyoto",
-          "plannedTime": "06:00–07:30",
+          "plannedTime": "06:00–07:15",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha+Kyoto",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Fushimi+Inari+Taisha+Kyoto",
           "reservationStatus": "not_required",
           "photoPoint": "센본도리이 · 새벽의 빈 길",
-          "notes": "새벽 교토 촬영 후 숙소에서 체크아웃"
+          "notes": "새벽 촬영 후 JR 이나리역→교토역 이동(약 5분) 또는 택시 · 07:15 이후 숙소 복귀·체크아웃"
         },
         {
           "id": "kyoto-station-day3",
@@ -838,11 +874,11 @@
           "latitude": 34.9858,
           "longitude": 135.7588,
           "address": "901 Higashishiokojicho, Shimogyo Ward, Kyoto",
-          "plannedTime": "08:45–09:15 고베행",
+          "plannedTime": "08:00–08:20 고베행",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kyoto+Station",
           "reservationStatus": "not_required",
-          "notes": "후시미 이나리·숙소 체크아웃 후 고베행 출발 허브 · 교토역→산노미야는 JR 신쾌속 약 50분대 기준으로 당일 시간표 확인"
+          "notes": "07:15–08:00 숙소 복귀·체크아웃·짐 회수 후 이동 · 08:20 전후 JR 신쾌속을 목표로 하고 교토역→산노미야 약 50–55분, 당일 시간표 확인"
         },
         {
           "id": "sannomiya",
@@ -854,11 +890,11 @@
           "latitude": 34.6941,
           "longitude": 135.1956,
           "address": "Sannomiyacho, Chuo Ward, Kobe",
-          "plannedTime": "10:30–11:00 도착",
+          "plannedTime": "09:15–09:35 도착·환승",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sannomiya+Station+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Sannomiya+Station+Kobe",
           "reservationStatus": "not_required",
-          "notes": "교토역에서 JR 신쾌속 이동 후 도착 · 점심 예약 시 역에서 식당까지 이동·짐 보관 시간을 포함"
+          "notes": "JR 신쾌속 하차 후 고베 시영 지하철 산노미야→신코베로 환승 · 점심 전 이동 시간을 아끼기 위해 기타노·카페는 생략"
         },
         {
           "id": "nishimura-coffee-day3",
@@ -916,7 +952,7 @@
           "latitude": 34.7035,
           "longitude": 135.1907,
           "address": "1-4-3 Kitanocho, Chuo Ward, Kobe",
-          "plannedTime": "10:45–12:15 기본 코스",
+          "plannedTime": "10:00–11:30 기본 코스",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nunobiki+Herb+Gardens+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Nunobiki+Herb+Gardens+Kobe",
           "reservationStatus": "recommended",
@@ -926,7 +962,7 @@
           "infoSourceUrl": "https://www.kobeherb.com/infomation/hours_fare/",
           "nearbyWalk": "신코베역·기타노 권역 · DAY 3 기본 코스",
           "operatingNote": "공식 FAQ 기준 로프웨이 편도 약 10분, 왕복·원내 산책은 약 1시간 30분입니다. DAY 3 항구권까지 모두 볼 경우 기타노와 니시무라커피를 기본 일정에 함께 넣지 않습니다. 강풍·낙뢰 운휴와 WEB 티켓을 방문 전에 확인하세요.",
-          "notes": "DAY 4에서 DAY 3 기본 코스로 이동 · 기타노 이진칸은 시간이 남을 때 선택"
+          "notes": "산노미야→신코베 지하철 후 역에서 도보 약 5분 · 로프웨이와 원내를 약 1시간 30분 관람 · 기타노 이진칸은 시간이 남을 때만 선택"
         },
         {
           "id": "steak-ishida",
@@ -968,7 +1004,7 @@
           "latitude": 34.6955235,
           "longitude": 135.192019,
           "address": "神戸市中央区中山手通1-9-5",
-          "plannedTime": "12:30–13:30 점심",
+          "plannedTime": "12:00–13:00 점심",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Teppanyaki+Kobe+Fuji+1-9-5+Nakayamatedori+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.6955235,135.192019",
           "reservationStatus": "not_required",
@@ -984,7 +1020,7 @@
           ],
           "operatingNote": "공식 사이트 기준 12:00–21:00 통영업·예약 불필요입니다. 부정기 휴무와 재료 소진 조기 종료 가능성이 있으므로 방문 전 078-391-1141로 확인하세요. 고베규 스테이크 단품이 아니라 고베규 포함 런치와 스테이크중을 선택할 수 있습니다.",
           "infoSourceUrl": "https://www.teppanyaki-fuji.jp/",
-          "notes": "스테이크 이시다 예약 마감 대체 1순위 · 허브원 관람 후 이동 · 12:30 입장"
+          "notes": "허브원 하산 후 신코베→산노미야 지하철 또는 택시로 이동(약 20–30분 여유) · 스테이크 이시다 예약 마감 대체 1순위 · 12:00 입장"
         },
         {
           "id": "grill-ippei-sannomiya-day3",
@@ -1021,7 +1057,7 @@
           "latitude": 34.6903,
           "longitude": 135.1879,
           "address": "Kyukyoryuchi, Chuo Ward, Kobe",
-          "plannedTime": "14:00–15:00",
+          "plannedTime": "13:15–14:00",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kobe+Former+Foreign+Settlement",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kobe+Former+Foreign+Settlement",
           "reservationStatus": "not_required",
@@ -1029,7 +1065,7 @@
           "price": "무료 구간 있음",
           "admission": "거리 무료 · 개별 이진칸은 유료",
           "photoPoint": "석조 건축 · 스트리트 스냅",
-          "notes": "점심 후 남쪽 항구 방향으로 이동"
+          "notes": "FUJI→구 거류지는 도보 약 15분 · 북쪽으로 되돌아가지 않고 남쪽 항구 방향으로 이동"
         },
         {
           "id": "meriken-park",
@@ -1041,7 +1077,7 @@
           "latitude": 34.6813,
           "longitude": 135.186,
           "address": "2-2 Hatobacho, Chuo Ward, Kobe",
-          "plannedTime": "15:15–16:00",
+          "plannedTime": "14:15–15:00",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Meriken+Park+Kobe",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Meriken+Park+Kobe",
           "reservationStatus": "not_required",
@@ -1049,7 +1085,7 @@
           "price": "무료",
           "admission": "무료",
           "photoPoint": "항구 · 포트타워 · 광장",
-          "notes": "항구의 넓은 장면과 포트타워"
+          "notes": "구 거류지에서 도보 약 10–15분 · 항구의 넓은 장면과 포트타워"
         },
         {
           "id": "kobe-port-tower",
@@ -1061,7 +1097,7 @@
           "latitude": 34.6812,
           "longitude": 135.1867,
           "address": "5-5 Hatobacho, Chuo Ward, Kobe",
-          "plannedTime": "16:15–17:15",
+          "plannedTime": "15:10–16:10",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kobe+Port+Tower",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kobe+Port+Tower",
           "reservationStatus": "check_required",
@@ -1072,7 +1108,7 @@
           "admission": "성인 ¥1,000–¥1,200 · 초중학생 ¥400–¥500",
           "operatingNote": "전망대·옥상은 지정 시간 티켓 필요. 저층부는 무료입니다.",
           "infoSourceUrl": "https://www.kobe-port-tower.com/en/",
-          "notes": "전망 플로어·옥상은 지정 시간 티켓이 필요하므로 방문 전 예약·잔여 좌석 확인 · 항구 동선은 구 거류지→메리켄→포트타워→하버랜드 순서 유지"
+          "notes": "메리켄 파크에서 도보 약 5분 · 전망 플로어·옥상은 지정 시간 티켓이 필요하므로 방문 전 예약·잔여 좌석 확인 · 항구 동선은 구 거류지→메리켄→포트타워→하버랜드 순서 유지"
         },
         {
           "id": "harborland-mosaic",
@@ -1084,7 +1120,7 @@
           "latitude": 34.6798,
           "longitude": 135.178,
           "address": "1 Chome-6 Higashikawasaki, Chuo Ward, Kobe",
-          "plannedTime": "17:45–19:00",
+          "plannedTime": "16:30–17:45",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kobe+Harborland+Mosaic",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Kobe+Harborland+Mosaic",
           "reservationStatus": "not_required",
@@ -1092,7 +1128,7 @@
           "price": "무료",
           "admission": "무료 야외 관람",
           "photoPoint": "일몰 · 블루아워 · 포트타워 맞은편 야경",
-          "notes": "오늘의 핵심 야경 포인트"
+          "notes": "포트타워에서 도보 약 15–20분 · 오늘의 핵심 야경 포인트 · 같은 권역에서 저녁까지 마무리"
         },
         {
           "id": "new-munchen-hafenburg",
@@ -1169,7 +1205,7 @@
           "latitude": 34.6800285,
           "longitude": 135.1823154,
           "address": "兵庫県神戸市中央区東川崎町1丁目6-1 神戸ハーバーランド umie MOSAIC 3F",
-          "plannedTime": "19:30 저녁",
+          "plannedTime": "18:00–19:00 저녁",
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tenjin+Horumon+Kobe+Harborland+Mosaic",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.6800285,135.1823154",
           "reservationStatus": "check_required",
@@ -1186,7 +1222,7 @@
           ],
           "operatingNote": "하버랜드 MOSAIC 3F에서 운영하는 일본식 철판 호르몬 전문점입니다. 공식 페이지에 예약 안내는 확인되지 않아 19:30 현장 방문을 기본으로 하되, 혼잡 시 대기 시간을 고려하세요.",
           "infoSourceUrl": "https://umie.jp/shops/detail/181",
-          "notes": "가우덴테·뉴뮌헨 대신 일본식 저녁 · 하버랜드 야경 후 같은 건물에서 식사"
+          "notes": "하버랜드/MOSAIC 3F 같은 건물 · 가우덴테·뉴뮌헨 대신 일본식 저녁 · 현장 대기 시 식사 시간을 19:30까지 늦출 수 있음"
         },
         {
           "id": "kobe-hotel-day3",
@@ -1202,7 +1238,7 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=34.6914616,135.1719867",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.6914616,135.1719867",
           "reservationStatus": "check_required",
-          "notes": "사용자가 공유한 ‘ひらのあたり’ 위치 추정 핀 · 예약 정보와 숙소명 최종 대조"
+          "notes": "하버랜드→고베 숙소는 지하철·도보보다 밤 택시가 편할 수 있음 · 사용자가 공유한 ‘ひらのあたり’ 위치 추정 핀이라 예약 정보와 숙소명 최종 대조"
         },
         {
           "id": "steakland-kobe",
@@ -1257,7 +1293,7 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=34.6914616,135.1719867",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=34.6914616,135.1719867",
           "reservationStatus": "check_required",
-          "notes": "체크아웃 후 고베 산노미야에서 한신·오사카난바 방향으로 이동 · 숙소명과 위치 최종 대조"
+          "notes": "정확한 숙소 핀을 전날 확인한 뒤 고베산노미야까지 택시 또는 시내버스 우선 · 짐이 있으면 도보 이동을 줄이고 한신선으로 연결"
         },
         {
           "id": "osaka-namba-arrival",
@@ -1272,8 +1308,8 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nankai+Namba+Station",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Nankai+Namba+Station",
           "reservationStatus": "not_required",
-          "operatingNote": "고베 산노미야에서 난바까지는 당일 한신·JR 시간표와 숙소 위치를 확인하세요. 난바 도착 후 짐 보관 장소를 먼저 확보하고 공항 이동 열차 승강장을 확인합니다.",
-          "notes": "고베 숙소 체크아웃 후 오사카 관광의 기준점 · 마지막에는 같은 역으로 돌아와 짐 회수"
+          "operatingNote": "고베산노미야에서는 한신 오사카난바선 직통 열차를 우선하고, 난바 도착 후 난카이 난바까지 역 안내 표지로 이동하세요. 짐 보관 장소와 공항 열차 승강장을 먼저 확인합니다.",
+          "notes": "한신 고베산노미야→오사카난바 직통 약 40–50분 내외를 예상하고 역 내 이동 버퍼를 포함 · 고베 숙소 체크아웃 후 오사카 관광의 기준점 · 마지막에는 같은 역으로 돌아와 짐 회수"
         },
         {
           "id": "kuromon-market-day4",
@@ -1295,7 +1331,7 @@
           "admission": "무료 시장 산책 · 음식 별도",
           "operatingNote": "약 150개 점포가 있는 580m 시장이며 영업시간·휴무일은 점포별로 다릅니다. 공휴일에는 원하는 점포가 열었는지 현장에서 확인하고, 오래 머물지 않도록 10:15 출발을 기준으로 잡습니다.",
           "infoSourceUrl": "https://osaka-info.jp/en/spot/kuromon-market/",
-          "notes": "고베에서 이동한 뒤 가장 먼저 둘러볼 오사카 대표 시장 · 아침 간식·가벼운 점심 대체"
+          "notes": "난카이 난바→쿠로몬 시장 도보 약 10–15분 · 고베에서 이동한 뒤 가장 먼저 둘러볼 오사카 대표 시장 · 아침 간식·가벼운 점심 대체"
         },
         {
           "id": "dotonbori-day4",
@@ -1317,7 +1353,7 @@
           "photoPoint": "글리코 간판 · 에비스바시 · 도톤보리 강변",
           "operatingNote": "난카이·오사카메트로 난바역에서 가깝고 영업시간·휴무일은 점포별로 다릅니다. 공항 이동일에는 상점 쇼핑보다 대표 사진과 산책만 합니다.",
           "infoSourceUrl": "https://osaka-info.jp/en/spot/dotonbori/",
-          "notes": "쿠로몬 시장에서 도보로 이어지는 오사카 핵심 구경 코스 · 11:30까지 마무리"
+          "notes": "쿠로몬 시장→도톤보리 도보 약 10–15분 · 오사카 핵심 구경 코스 · 11:30까지 마무리"
         },
         {
           "id": "namba-parks-day4",
@@ -1338,7 +1374,7 @@
           "admission": "무료 구역 있음 · 점포 이용 별도",
           "operatingNote": "난카이 난바역과 바로 연결된 시설이라 공항 이동 직전 식사·화장실·마지막 쇼핑을 한 곳에서 처리할 수 있습니다. 12:15 이후에는 관광을 늘리지 않습니다.",
           "infoSourceUrl": "https://osaka-info.jp/en/special/universal/tourism/",
-          "notes": "공항 이동 전 마지막 오사카 거점 · 점포 휴무·영업시간은 방문 당일 확인"
+          "notes": "도톤보리→난바 파크스 도보 약 15–20분 · 난카이 난바와 연결된 공항 이동 전 마지막 거점 · 점포 휴무·영업시간은 방문 당일 확인"
         },
         {
           "id": "osaka-namba-luggage-return",
@@ -1353,7 +1389,7 @@
           "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nankai+Namba+Station",
           "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Nankai+Namba+Station",
           "reservationStatus": "not_required",
-          "notes": "난바 관광을 여기서 종료하고 공항 열차 승강장으로 이동"
+          "notes": "난바 파크스→난카이 난바 도보 약 5–10분 · 12:30 관광 종료 후 짐 회수와 공항 열차 승강장 이동"
         },
         {
           "id": "kix-day4",
@@ -1372,7 +1408,7 @@
           "hours": "공항·시설별 상이",
           "price": "시설별",
           "admission": "터미널 무료",
-          "notes": "12:30 전후 난카이 난바 출발 · 18:00 항공편 기준 · 실제 항공편·터미널에 맞춰 재확인"
+          "notes": "난카이 난바에서 Rapi:t 약 34분 또는 공항급행 약 45분 · 승강장·터미널 이동 버퍼를 포함해 12:30 전후 출발 · 18:00 항공편 가정이며 실제 항공편·터미널에 맞춰 재확인"
         }
       ]
     }
