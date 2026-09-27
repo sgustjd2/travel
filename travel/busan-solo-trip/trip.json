@@ -15,6 +15,7 @@
           "summary": "도보 산책과 해운대시장 먹거리, 지하철 2호선으로 복귀",
           "placeIds": [
             "busan-station-arrival",
+            "ro-ong-late-brunch",
             "studio202-checkin",
             "miffy-store-haeundae",
             "haeundae-beach",
@@ -31,6 +32,7 @@
           "summary": "해변열차 또는 마을버스로 청사포를 다녀오는 해안 코스",
           "placeIds": [
             "busan-station-arrival",
+            "ro-ong-late-brunch",
             "studio202-checkin",
             "miffy-store-haeundae",
             "cheongsapo-daritdol-observatory",
@@ -45,6 +47,7 @@
           "summary": "해안 산책 뒤 야시장 간식을 여러 가지 맛보는 긴 코스",
           "placeIds": [
             "busan-station-arrival",
+            "ro-ong-late-brunch",
             "studio202-checkin",
             "miffy-store-haeundae",
             "cheongsapo-daritdol-observatory",
@@ -59,6 +62,7 @@
           "summary": "지하철 2호선으로 센텀시티와 영화의전당을 연결",
           "placeIds": [
             "busan-station-arrival",
+            "ro-ong-late-brunch",
             "studio202-checkin",
             "miffy-store-haeundae",
             "centum-city",
@@ -75,13 +79,14 @@
           "summary": "스파랜드에서 쉬고 체크인 뒤 미피스토어와 실내 저녁",
           "placeIds": [
             "busan-station-arrival",
+            "ro-ong-late-brunch",
             "spa-land-centum-rainy-alt",
             "studio202-checkin",
             "miffy-store-haeundae",
             "onbap-dinner-alt",
             "gwangalli-return-after-night-market"
           ],
-          "notes": "부산역 짐 보관과 스파랜드 이용시간·요금, 미피스토어 영업을 당일 확인하세요. 비가 많이 오면 해안 산책 대신 숙소 인근에서 저녁을 먹고 쉬어도 됩니다."
+          "notes": "부산역 짐 보관과 스파랜드 이용시간·요금, 미피스토어 영업을 당일 확인하세요. 비가 많이 오면 해안 산책 대신 숙소 인근에서 저녁을 먹고 쉬어도 됩니다. 체크인 전 광안리 권역 점심은 로옹 브런치로 두고, 스파랜드는 운영시간에 맞춰 앞뒤 순서를 조정하세요."
         }
       ],
       "places": [
@@ -101,7 +106,7 @@
         },
         {
           "id": "studio202-checkin",
-          "order": 2,
+          "order": 3,
           "name": "숙소 체크인 · Studio202 추정",
           "category": "hotel",
           "latitude": 35.1499375,
@@ -115,7 +120,7 @@
         },
         {
           "id": "miffy-store-haeundae",
-          "order": 3,
+          "order": 4,
           "name": "미피스토어 해운대점 · 미포 블루라인파크 앞",
           "category": "photo",
           "latitude": 35.15937932,
@@ -135,7 +140,7 @@
         },
         {
           "id": "bupyeong-kkangtong-night-market",
-          "order": 6,
+          "order": 7,
           "name": "부평깡통야시장",
           "category": "restaurant",
           "latitude": 35.101559,
@@ -158,7 +163,7 @@
         },
         {
           "id": "gwangalli-return-after-night-market",
-          "order": 7,
+          "order": 8,
           "name": "광안리 숙소 복귀",
           "category": "hotel",
           "latitude": 35.1499375,
@@ -173,7 +178,7 @@
         },
         {
           "id": "hwangnyeongsan-sunset-alt",
-          "order": 8,
+          "order": 9,
           "name": "황령산 편백숲 · 봉수전망대",
           "category": "photo",
           "address": "부산광역시 부산진구 전포동 산50-18 일대",
@@ -190,7 +195,7 @@
         },
         {
           "id": "gwangalli-beach-evening",
-          "order": 9,
+          "order": 10,
           "name": "광안리 해변 · 노을과 광안대교 야경",
           "category": "photo",
           "address": "부산광역시 수영구 광안해변로 일대",
@@ -204,9 +209,9 @@
           "optional": true,
           "alternativeFor": "hwangnyeongsan-sunset-alt"
         },
-      {
-        "id": "onbap-dinner-alt",
-          "order": 24,
+        {
+          "id": "onbap-dinner-alt",
+          "order": 25,
           "name": "온밥 광안점",
           "category": "restaurant",
           "latitude": 35.1534375,
@@ -217,7 +222,7 @@
           "directionsUrl": "https://map.naver.com/p/directions/3AGfvV,2z7c0l,%EB%B6%80%EC%82%B0%EC%97%AD%20(%EA%B3%A0%EC%86%8D%EC%B2%A0%EB%8F%84),13479631,PLACE_POI/3AJk3r,2z8NEH,%EC%98%A8%EB%B0%A5%20%EA%B4%91%EC%95%88%EC%A0%90,1957289264,PLACE_POI/-/transit?c=12.00,0,0,0,dh",
           "reservationUrl": "https://app.catchtable.co.kr/ct/shop/onbab",
           "reservationStatus": "check_required",
-          "optional": false,
+          "optional": true,
           "nearbyWalk": "남천동에서 대중교통 이동 필요",
           "hours": "캐치테이블 매일 11:00–20:30 (다른 지도 11:30 표기) · 브레이크 15:00–17:00 · L.O. 14:30·20:00",
           "closedDays": "확인 필요",
@@ -246,12 +251,11 @@
             }
           ],
           "infoSourceUrl": "https://app.catchtable.co.kr/ct/shop/onbab",
-          "optional": true,
           "notes": "광안권역의 생선구이·불고기 식당 대안입니다. Google 4.7점·252개(2026-09-27 지도 확인). 예약 앱은 캐치테이블입니다. 매장 페이지에서 확인되는 것은 시간 지정 좌석예약이 아니라 당일 웨이팅이며, 최근 이용 후기에는 대기 2팀 이상일 때 원격 줄서기 가능·1팀이면 현장 등록으로 안내되어 있습니다. 해운대시장에서 출발하기 전인 19:10경 캐치테이블 매장 페이지에서 대기 상태와 원격 등록 버튼을 확인하고, 19:40 전후 도착을 목표로 하세요. 19:40은 예약 좌석 시각이 아니며, 원격 웨이팅 오픈 시각도 별도 안내가 없어 입장을 보장할 수 없습니다. 캐치테이블 매장정보는 영업 시작 11:00, 다른 지도는 11:30으로 달라 당일 재확인하세요. 저녁 라스트오더는 20:00 표기이므로 늦어도 20:00 전 주문해야 합니다. 웨이팅이 길면 삼삼횟집 등 다른 후보를 고르세요."
         },
         {
           "id": "samsam-hoejib-gwangan",
-          "order": 26,
+          "order": 27,
           "name": "삼삼횟집 · 광안리 로컬 숙성회",
           "category": "restaurant",
           "address": "부산광역시 수영구 광안해변로278번길 22",
@@ -271,7 +275,7 @@
         },
         {
           "id": "centum-city",
-          "order": 12,
+          "order": 13,
           "name": "센텀시티역",
           "category": "station",
           "latitude": 35.1689375,
@@ -287,7 +291,7 @@
         },
         {
           "id": "nagano-market-centum",
-          "order": 13,
+          "order": 14,
           "name": "신세계 센텀시티 · 나가노마켓 팝업",
           "category": "logistics",
           "address": "부산광역시 해운대구 센텀남대로 35 · 신세계 센텀시티",
@@ -305,7 +309,7 @@
         },
         {
           "id": "busan-cinema-center-alt",
-          "order": 14,
+          "order": 15,
           "name": "영화의전당",
           "category": "photo",
           "address": "부산광역시 해운대구 수영강변대로 120",
@@ -321,7 +325,7 @@
         },
         {
           "id": "millak-the-market-alt",
-          "order": 15,
+          "order": 16,
           "name": "밀락더마켓",
           "category": "photo",
           "address": "부산광역시 수영구 민락수변로17번길 56",
@@ -340,7 +344,7 @@
         },
         {
           "id": "spa-land-centum-rainy-alt",
-          "order": 16,
+          "order": 17,
           "name": "스파랜드 센텀시티",
           "category": "photo",
           "address": "부산광역시 해운대구 센텀남대로 35 · 신세계 센텀시티 내",
@@ -358,7 +362,7 @@
         },
         {
           "id": "cheonghak-observatory-instagram-alt",
-          "order": 18,
+          "order": 19,
           "name": "청학배수지전망대 · 북항 언덕 야경",
           "category": "photo",
           "address": "부산광역시 영도구 와치로 36",
@@ -375,7 +379,7 @@
         },
         {
           "id": "bokcheonsa-instagram-alt",
-          "order": 19,
+          "order": 20,
           "name": "복천사 · 영도 노을 산책 대안",
           "category": "photo",
           "address": "부산광역시 영도구 산정길 41",
@@ -392,7 +396,7 @@
         },
         {
           "id": "dongbaekseom-coastal-walk",
-          "order": 23,
+          "order": 24,
           "name": "동백섬 동백공원 해안산책로",
           "category": "photo",
           "latitude": 35.15259434,
@@ -412,7 +416,7 @@
         },
         {
           "id": "cheongsapo-daritdol-observatory",
-          "order": 4,
+          "order": 5,
           "name": "청사포 다릿돌전망대 · 그린레일웨이",
           "category": "photo",
           "latitude": 35.1633523032,
@@ -432,7 +436,7 @@
         },
         {
           "id": "haeundae-beach",
-          "order": 21,
+          "order": 22,
           "name": "해운대해수욕장 · 해변 산책",
           "category": "photo",
           "latitude": 35.1591243474,
@@ -452,7 +456,7 @@
         },
         {
           "id": "haeundae-market",
-          "order": 22,
+          "order": 23,
           "name": "해운대시장 · 로컬 먹거리 골목",
           "category": "restaurant",
           "latitude": 35.1615130141,
@@ -473,7 +477,7 @@
         },
         {
           "id": "baohaus-gwangan-alt",
-          "order": 25,
+          "order": 26,
           "name": "바오하우스 광안점 · 대만식 바오·마파두부",
           "category": "restaurant",
           "address": "부산광역시 수영구 광안로48번길 5",
@@ -492,7 +496,7 @@
         },
         {
           "id": "hey-patty-haeundae-alt",
-          "order": 27,
+          "order": 28,
           "name": "헤이패티 · 해운대 수제버거",
           "category": "restaurant",
           "address": "부산광역시 해운대구 해운대로 620 라뮤에뜨 1층 111호",
@@ -512,7 +516,7 @@
         },
         {
           "id": "soksiwonhan-daegutang-haeundae-alt",
-          "order": 28,
+          "order": 29,
           "name": "속시원한대구탕 본점 · 해운대 달맞이",
           "category": "restaurant",
           "address": "부산광역시 해운대구 달맞이길 229",
@@ -529,6 +533,54 @@
           "nearbyWalk": "미포·달맞이길 산책과 묶을 수 있으나 오르막과 버스 이동 확인",
           "infoSourceUrl": "https://wanderlog.com/place/details/2453542/%EC%86%8D%EC%8B%9C%EC%9B%90%ED%95%9C%EB%8C%80%EA%B5%AC%ED%83%95",
           "notes": "Google 리뷰 기준 통과: 4.0점·1,339개(2026-09-27 확인). 메뉴가 대구탕 한 가지인 부산식 식당이라 혼자 한 끼 먹기 좋고, 확인한 자료에는 분점이 없는 본점으로 소개됩니다. 월요일 영업 안내는 08:00–19:30이지만 달맞이길 오르막과 대중교통 배차를 고려해 미포·달맞이 코스를 고른 경우에만 들르세요. 해운대시장·광안리 식당까지 모두 방문하는 일정은 아니며 한 곳을 골라 식사하는 대안입니다. 카카오맵 평점·후기는 별도 확인 필요."
+        },
+        {
+          "id": "ro-ong-late-brunch",
+          "order": 2,
+          "name": "로옹 · 광안리 브런치",
+          "category": "restaurant",
+          "address": "부산광역시 수영구 광안로48번길 7 2층",
+          "plannedTime": "11:30–12:40 · 늦은 아침 겸 점심",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%EB%A1%9C%EC%98%B9+%EA%B4%91%EC%95%88%EB%A6%AC",
+          "directionsUrl": "https://map.naver.com/p/search/%EB%A1%9C%EC%98%B9%20%EA%B4%91%EC%95%88%EB%A6%AC",
+          "reservationUrl": "https://app.catchtable.co.kr/ct/shop/ro_ong_brunch/",
+          "reservationStatus": "check_required",
+          "hours": "월요일 08:30–15:30 · 라스트오더 14:20 안내, 최신 공지 확인",
+          "closedDays": "화요일 정기휴무 안내 · 비정기 휴무 확인 필요",
+          "price": "메뉴판 표기 ₩10,000–₩16,000 · Google 1인 가격대 안내(₩20,000–₩30,000)와 차이 있어 주문 전 확인",
+          "menuPoint": "혼밥 브런치 추천: 로옹의 아침 ₩16,000. 가볍게 먹으면 오렌지 케일 샐러드 ₩13,000 또는 사워도우+그릭요거트 ₩13,500.",
+          "menu": [
+            {
+              "name": "로옹의 아침",
+              "price": "₩16,000",
+              "note": "크루아상 샌드위치·달걀·베이컨·소시지·샐러드 구성 안내 · 가격 재확인"
+            },
+            {
+              "name": "에그베네딕트",
+              "price": "₩15,000",
+              "note": "브런치 인기 메뉴"
+            },
+            {
+              "name": "오렌지 케일 샐러드",
+              "price": "₩13,000",
+              "note": "가벼운 식사 선택지"
+            },
+            {
+              "name": "사워도우 + 그릭요거트·칠리오일",
+              "price": "₩13,500",
+              "note": "가벼운 브런치 메뉴 안내"
+            },
+            {
+              "name": "프렌치 어니언 수프",
+              "price": "₩10,000",
+              "note": "식사량을 줄이고 싶을 때"
+            }
+          ],
+          "nearbyWalk": "광안리 숙소 권역에서 체크인 전 들르는 브런치 후보 · 출발 경로는 네이버지도 확인",
+          "infoSourceUrl": "https://app.catchtable.co.kr/ct/shop/ro_ong_brunch/",
+          "notes": "Google 리뷰 4.7점·198개, 캐치테이블 리뷰 4.8점·166개로 확인한 광안리 브런치 후보입니다. 최근 매장 안내는 월요일 08:30–15:30(라스트오더 14:20), 화요일 휴무입니다. 캐치테이블에서 예약 가능 시간과 대기를 확인하세요. 짐을 숙소 권역에 맡길 수 있을 때 들르면 15:00 체크인 전 일정에 맞습니다. Google 가격대와 개별 메뉴판 표기가 달라 주문 전에 최신 가격을 확인하세요.",
+          "latitude": 35.1547559,
+          "longitude": 129.1172921
         }
       ]
     },
@@ -545,6 +597,7 @@
           "title": "초량 골목 + 빵지순례 + 168계단",
           "summary": "기본 코스 · 빵집과 오래된 동네 풍경을 모두",
           "placeIds": [
+            "daniels-breakfast",
             "tonesho-lunch",
             "brown-hands-baekje-cafe",
             "choryang-chinatown-alt",
@@ -559,6 +612,7 @@
           "title": "빵집 우선 · 초량 골목 짧게",
           "summary": "대기·체력이 부담되면 168계단과 카페 한 곳을 줄여요",
           "placeIds": [
+            "daniels-breakfast",
             "tonesho-lunch",
             "choryang-chinatown-alt",
             "choryang-ondang-bakery",
@@ -572,6 +626,7 @@
           "title": "흰여울문화마을 · 영도 골목 산책",
           "summary": "초량 계단 대신 바다 절벽길과 골목을 천천히",
           "placeIds": [
+            "daniels-breakfast",
             "tonesho-lunch",
             "huinnyeoul-village-instagram-alt",
             "maga-mandu-dinner",
@@ -583,7 +638,7 @@
       "places": [
         {
           "id": "tonesho-lunch",
-          "order": 2,
+          "order": 3,
           "name": "톤쇼우 광안점",
           "category": "restaurant",
           "latitude": 35.1564375,
@@ -596,14 +651,41 @@
           "reservationStatus": "recommended",
           "hours": "11:00–22:00 · CatchTable 안내, 당일 재확인",
           "closedDays": "확인 필요",
-          "price": "확인 필요 · 방문 당일 메뉴판 확인",
-          "menuPoint": "버크셔K 로스카츠 · 새우카츠 조합이 대표 메뉴로 소개됨",
-          "infoSourceUrl": "https://www.catchtable.net/discovery/top-10-japanese-restaurants-in-gwangalli.html",
-          "notes": "이번 여행의 고정 우선순위입니다. Google 4.5점·947개. 카카오맵은 별점 미제공(후기 3,724건)이라 양 플랫폼 평점 기준 통과 여부는 미확인; 선호 식당 예외로 유지합니다. 10:00 원격 웨이팅을 등록하고 호출 예상시간을 확인하세요. 호출 직후 입장해야 하므로 광안리 근처에 머물고, 호출이 늦으면 초량 코스를 줄입니다. 20:00 전후 열차를 기준으로 19:20까지 부산역에 도착하도록 역산하세요."
+          "price": "₩14,500–₩21,000 · 최근 등록 메뉴 기준, 방문 당일 확인",
+          "menuPoint": "처음이면 버크셔K 로스카츠 ₩18,000 추천(고소한 등심). 담백한 안심은 히레카츠 ₩15,000, 여러 종류는 모듬카츠 ₩18,000.",
+          "infoSourceUrl": "https://www.diningcode.com/profile.php?rid=v5lOKaS91oh4",
+          "notes": "이번 여행의 고정 우선순위입니다. Google 4.5점·947개. 카카오맵은 별점 미제공(후기 3,724건)이라 양 플랫폼 평점 기준 통과 여부는 미확인; 선호 식당 예외로 유지합니다. 10:00 원격 웨이팅을 등록하고 호출 예상시간을 확인하세요. 호출 직후 입장해야 하므로 광안리 근처에 머물고, 호출이 늦으면 초량 코스를 줄입니다. 20:00 전후 열차를 기준으로 19:20까지 부산역에 도착하도록 역산하세요. 메뉴판 등록 가격: 버크셔K 로스 ₩18,000, 히레 ₩15,000, 모듬 ₩18,000, 버크셔K 특로스 ₩21,000, 카레 추가 ₩3,500(2026-09-27 확인). 특로스는 한정·품절 가능. 최신 가격은 당일 메뉴판 확인.",
+          "menu": [
+            {
+              "name": "버크셔K 로스카츠",
+              "price": "₩18,000",
+              "note": "대표 메뉴 · 등심의 고소한 풍미"
+            },
+            {
+              "name": "히레카츠",
+              "price": "₩15,000",
+              "note": "담백하고 부드러운 안심"
+            },
+            {
+              "name": "모듬카츠",
+              "price": "₩18,000",
+              "note": "로스+히레+에비 구성 안내"
+            },
+            {
+              "name": "버크셔K 특로스카츠",
+              "price": "₩21,000",
+              "note": "수량 한정 메뉴 안내 · 품절 가능"
+            },
+            {
+              "name": "카레 추가",
+              "price": "₩3,500",
+              "note": "사이드 메뉴"
+            }
+          ]
         },
         {
           "id": "baekgudang-bakery",
-          "order": 3,
+          "order": 4,
           "name": "백구당",
           "category": "cafe",
           "address": "부산광역시 중구 중앙대로81번길 3 (중앙동4가)",
@@ -621,7 +703,7 @@
         },
         {
           "id": "brown-hands-baekje-cafe",
-          "order": 4,
+          "order": 5,
           "name": "브라운핸즈 백제 · 구 백제병원",
           "category": "cafe",
           "address": "부산광역시 동구 중앙대로209번길 16 (초량동)",
@@ -639,7 +721,7 @@
         },
         {
           "id": "choryang-chinatown-alt",
-          "order": 5,
+          "order": 6,
           "name": "초량 차이나타운 · 텍사스거리",
           "category": "photo",
           "address": "부산광역시 동구 초량동 부산역 맞은편 일대",
@@ -656,7 +738,7 @@
         },
         {
           "id": "choryang-ondang-bakery",
-          "order": 6,
+          "order": 7,
           "name": "초량온당",
           "category": "cafe",
           "address": "부산광역시 동구 초량중로 135 1층",
@@ -677,7 +759,7 @@
           "id": "choryang-168-steps",
           "name": "초량이바구길 · 168계단 하늘길",
           "category": "photo",
-          "order": 7,
+          "order": 8,
           "latitude": 35.11758842,
           "longitude": 129.03570319,
           "address": "부산광역시 동구 영초길191번길 9-2 일대",
@@ -693,7 +775,7 @@
         },
         {
           "id": "busan-station-departure",
-          "order": 9,
+          "order": 10,
           "name": "부산역 귀가",
           "category": "station",
           "address": "부산광역시 동구 중앙대로 206",
@@ -705,7 +787,7 @@
         },
         {
           "id": "gwangalli-morning-walk",
-          "order": 10,
+          "order": 11,
           "name": "광안리 아침 바다 산책",
           "category": "photo",
           "address": "부산광역시 수영구 광안해변로 일대",
@@ -722,7 +804,7 @@
           "id": "suyeong-paldo-market",
           "name": "수영팔도시장",
           "category": "photo",
-          "order": 11,
+          "order": 12,
           "latitude": 35.16891302,
           "longitude": 129.11700983,
           "address": "부산광역시 수영구 수영로705번길 36",
@@ -739,7 +821,7 @@
         },
         {
           "id": "go-ok-lunch-alt",
-          "order": 12,
+          "order": 13,
           "name": "고옥",
           "category": "restaurant",
           "latitude": 35.1436875,
@@ -762,7 +844,7 @@
         },
         {
           "id": "hwaryeok-lunch-alt",
-          "order": 13,
+          "order": 14,
           "name": "화륵",
           "category": "restaurant",
           "address": "부산광역시 수영구 광안리 인근 · 정확한 주소 확인 필요",
@@ -781,7 +863,7 @@
         },
         {
           "id": "millak-waterfront-park-alt",
-          "order": 14,
+          "order": 15,
           "name": "민락수변공원",
           "category": "photo",
           "address": "부산광역시 수영구 민락수변로 129 일대",
@@ -800,7 +882,7 @@
           "id": "f1963-culture-complex",
           "name": "F1963 · 옛 와이어공장 문화공간",
           "category": "photo",
-          "order": 15,
+          "order": 16,
           "latitude": 35.17700742,
           "longitude": 129.11548981,
           "address": "부산광역시 수영구 구락로123번길 20",
@@ -818,7 +900,7 @@
         },
         {
           "id": "north-port-waterfront-park-alt",
-          "order": 16,
+          "order": 17,
           "name": "북항친수공원",
           "category": "photo",
           "address": "부산광역시 동구 이순신대로 164 일대",
@@ -836,7 +918,7 @@
         },
         {
           "id": "huinnyeoul-village-instagram-alt",
-          "order": 17,
+          "order": 18,
           "name": "흰여울문화마을 · 영도 골목 산책 대안",
           "category": "photo",
           "address": "부산광역시 영도구 영선동4가 605-3 · 흰여울길 일대",
@@ -854,7 +936,7 @@
         },
         {
           "id": "maga-mandu-dinner",
-          "order": 8,
+          "order": 9,
           "name": "마가만두 · 부산 차이나타운",
           "category": "restaurant",
           "address": "부산광역시 동구 대영로243번길 62",
@@ -872,7 +954,7 @@
         },
         {
           "id": "gogwan-hambak-alt",
-          "order": 18,
+          "order": 19,
           "name": "고관함박 · Google 리뷰 기준 미확인",
           "category": "restaurant",
           "latitude": 35.1269,
@@ -890,6 +972,43 @@
           "alternativeFor": "maga-mandu-dinner",
           "infoSourceUrl": "https://www.busan.go.kr/kids/user/article/view.busan?articleIdx=300&menuCd=DOM_000001701008000000",
           "notes": "부산시 동구 택슐랭 소개에 나온 수제 함박스테이크 집으로 혼밥과 단품 메뉴 정보가 있습니다. 다만 이번 조사에서 Google 별점·리뷰 수를 확인하지 못해 사용자의 Google 4.0·100개 기준을 통과한 추천 목록에는 넣지 않았습니다. 점심에는 대기가 있을 수 있고, 저녁 이른 시간에는 회전이 빠르다는 후기도 있습니다. 네이버 평점 4.5·4,526개는 Google 점수와 별개입니다."
+        },
+        {
+          "id": "daniels-breakfast",
+          "order": 1,
+          "name": "대니얼스 광안리본점 · 아침 브런치",
+          "category": "restaurant",
+          "latitude": 35.1544111,
+          "longitude": 129.1149841,
+          "address": "부산광역시 수영구 수영로554번가길 8 1층",
+          "plannedTime": "08:00–09:00 · 아침 식사 후 톤쇼우 이동",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%EB%8C%80%EB%8B%88%EC%96%BC%EC%8A%A4+%EA%B4%91%EC%95%88%EB%A6%AC",
+          "directionsUrl": "https://map.naver.com/p/entry/place/1103306605?lng=129.1149841&lat=35.1544111&placePath=%2Fhome&entry=plt&searchType=place",
+          "reservationStatus": "not_required",
+          "hours": "08:00 오픈 표기 · 영업 종료/화요일 운영은 당일 지도 확인",
+          "closedDays": "확인 필요 · 화요일 영업 여부 방문 당일 재확인",
+          "price": "대니얼스 플레이트(warm) ₩18,000 (2025 메뉴 리뷰 가격 · 최신 가격 확인)",
+          "menuPoint": "아침 한 끼 추천: 대니얼스 플레이트(warm) ₩18,000 · 오믈렛·베이컨·소시지·채소·버섯수프 구성 소개.",
+          "menu": [
+            {
+              "name": "대니얼스 플레이트 (warm)",
+              "price": "₩18,000",
+              "note": "오믈렛·베이컨·소시지·채소·버섯수프 · 리뷰 기록 가격이므로 현행 메뉴판 확인"
+            },
+            {
+              "name": "애플 잠봉 오픈샌드위치",
+              "price": "가격 확인 필요",
+              "note": "가벼운 대안 · 운영 여부 확인"
+            },
+            {
+              "name": "이태리 까르보나라",
+              "price": "₩14,000",
+              "note": "점심 대안 · 2025 리뷰 가격, 최신 가격 확인"
+            }
+          ],
+          "nearbyWalk": "광안역 약 420m·도보 5분 안내 · 숙소 권역에서 아침 후 톤쇼우 이동",
+          "infoSourceUrl": "https://map.naver.com/p/entry/place/1103306605?lng=129.1149841&lat=35.1544111&placePath=%2Fhome&entry=plt&searchType=place",
+          "notes": "Google 리뷰 4.9점·221개, 네이버 플레이스 4.88점·3,150개로 확인한 광안리 브런치 카페입니다. 08:00 오픈 표기가 있어 10:00 톤쇼우 웨이팅 등록 전 아침 후보로 배치했습니다. 대니얼스 플레이트와 가격은 2025 메뉴 리뷰 기록이므로 최신 메뉴판과 화요일 영업을 확인하세요. 혼자 식사 가능한 브런치형 매장이며 아침 시간 주문 메뉴는 현장 확인이 필요합니다."
         }
       ]
     }
