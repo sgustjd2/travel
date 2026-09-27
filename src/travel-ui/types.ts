@@ -8,6 +8,7 @@ export type MenuImageKey = "ramen" | "gyoza" | "rice" | "udon" | "tempura" | "cu
 export type MenuItem = { name: string; nameJa?: string; nameKo?: string; price: string; note?: string; imageKey?: MenuImageKey; imageUrl?: string };
 export type TripGuideKind = "must" | "warning" | "tip";
 export type TripGuideItem = { id: string; kind: TripGuideKind; title: string; body: string; dayNumber?: number; sourceUrls?: string[]; checkable?: boolean };
+export type TripRouteOption = { id: string; title: string; summary: string; placeIds: string[]; notes?: string };
 
 export type Place = {
   id: string;
@@ -40,7 +41,7 @@ export type Place = {
   notes?: string;
 };
 
-export type TripDay = { id: string; dayNumber: number; dayOfMonth: number; city: string; title: string; places: Place[] };
+export type TripDay = { id: string; dayNumber: number; dayOfMonth: number; city: string; title: string; places: Place[]; routeOptions?: TripRouteOption[]; defaultRouteId?: string };
 export type Trip = { title: string; days: TripDay[]; guideItems?: TripGuideItem[] };
 export type MapPlace = Place & { dayNumber: number; dayOfMonth: number; dayTitle: string };
 export type PlaceDraft = { name: string; category: Category; plannedTime: string; address: string; hours: string; closedDays: string; price: string; admission: string; latitude: string; longitude: string; googleMapsUrl: string; directionsUrl: string; notes: string; markVisited: boolean };

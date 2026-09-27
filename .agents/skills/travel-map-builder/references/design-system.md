@@ -17,6 +17,7 @@
 - 상세 정보는 새 페이지나 일반 desktop modal이 아니라 휴대폰 화면 안의 스크롤 가능한 `BottomSheet`입니다.
 - 하단에는 일정·지도·예약·저장 4개 항목의 고정 bottom navigation을 둡니다.
 - 헤더 빠른 메뉴에는 `준비·꿀팁`을 두고 `TravelGuideSheet`에서 `must`·`warning`·`tip` 그룹을 구분합니다. 체크 가능한 준비 항목은 완료 상태를 표시하고, 긴 목록은 시트 내부에서 끝까지 스크롤됩니다.
+- `routeOptions`가 있는 날짜는 `TravelRouteSelector`에서 코스를 고를 수 있고, 선택한 코스의 장소가 지도와 카드 목록에 반영됩니다.
 - 긴 일정 목록을 읽을 때 하단 내비게이션을 침범하지 않는 floating `맨 위로 이동` 버튼을 제공하고, 스크롤이 충분히 내려간 뒤에만 표시합니다.
 
 실제 캡처는 다음 파일을 시각 검수 기준으로 사용합니다.
@@ -64,6 +65,7 @@ Prototype
 | `TravelCategoryLegend` | `categories: CategoryConfig[]` | 공통 카테고리 색상·라벨 범례 |
 | `TravelPlaceCard` | `place`, `category`, 상태, `preview`, 액션 콜백 | 장소 카드의 번호·아이콘·정보·이미지·체크·즐겨찾기 |
 | `TravelGuideSheet` | `items`, `completedIds`, 열기/닫기·토글 콜백 | 필수 준비·주의할 점·여행 꿀팁을 색상 그룹으로 보여주는 체크리스트 시트 |
+| `TravelRouteSelector` | `options`, `selectedId`, `onSelect` | 날짜별 대안 동선을 선택하고 선택 결과를 일정·지도에 전달 |
 | `TravelDataTransferSheet` | transfer 상태와 복사/공유/파일 콜백 | JSON 기록 내보내기·가져오기 BottomSheet |
 
 `PlacePreview`처럼 여행 데이터에 따라 이미지를 선택하는 얇은 어댑터는 허용하지만 카드 전체 UI를 다시 만들 수 없습니다. 공통 UI를 수정할 때는 `components.tsx` 또는 `index.ts`와 [component-contract.md](component-contract.md)를 함께 갱신하고 기존 교토·고베 화면에서 실제 사용 여부를 확인합니다.

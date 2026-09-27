@@ -30,7 +30,7 @@ import {
   X,
 } from "lucide-react";
 import { BottomSheet, KeyboardInput, KeyboardTextarea, MobileScroll, useKeyboard } from "./mobile";
-import { CATEGORY_COLORS, CATEGORY_CONFIGS, TravelBottomNav, TravelCategoryLegend, TravelDataTransferSheet, TravelGuideSheet, TravelHeader, TravelPlaceCard, categoryIcons, categoryLabels, type CategoryConfig } from "./travel-ui";
+import { CATEGORY_COLORS, CATEGORY_CONFIGS, TravelBottomNav, TravelCategoryLegend, TravelDataTransferSheet, TravelGuideSheet, TravelHeader, TravelPlaceCard, TravelRouteSelector, categoryIcons, categoryLabels, type CategoryConfig } from "./travel-ui";
 import type { Category, CategoryFilter, Coordinate, DayFilter, LocalTripState, MapPlace, MenuImageKey, MenuItem, Place, PlaceDraft, ReservationStatus, TransferMode, TransferPayload, TransferStatus, Trip, TripDay, View } from "./travel-ui";
 const tripDataFiles = import.meta.glob("../travel/*/trip.json", { eager: true, import: "default" }) as Record<string, Trip>;
 
@@ -538,10 +538,13 @@ function PlaceDetailSheet({ place, day, open, onClose, note, onNoteChange, compl
   return <EditablePlaceDetailSheet place={place} day={day} open={open} onClose={onClose} note={note} onNoteChange={onNoteChange} completed={completed} favorite={favorite} onToggleComplete={onToggleComplete} onToggleFavorite={onToggleFavorite} onEdit={onEdit} onDelete={onDelete} />;
 }
 
-function ScheduleView({ activeDay, selectedPlace, selectedPlaceId, showAlternatives, setShowAlternatives, actualOnly, onToggleActualOnly, onAddPlace, onSelectPlace, onFocusPlace, onToggleComplete, onToggleFavorite, completedIds, favoriteIds, userLocation, onUserLocation }: { activeDay: TripDay; selectedPlace: Place | null; selectedPlaceId: string | null; showAlternatives: boolean; setShowAlternatives: (show: boolean) => void; actualOnly: boolean; onToggleActualOnly: () => void; onAddPlace: () => void; onSelectPlace: (place: MapPlace) => void; onFocusPlace: (place: MapPlace) => void; onToggleComplete: (id: string) => void; onToggleFavorite: (id: string) => void; completedIds: string[]; favoriteIds: string[]; userLocation: Coordinate | null; onUserLocation: (location: Coordinate) => void }) {
-  const primaryPlaces = activeDay.places.filter((place) => !place.optional).sort(comparePlaceOrder);
-  const restaurantAlternatives = activeDay.places.filter((place) => place.optional && place.category === "restaurant").sort(comparePlaceOrder);
-  const otherAlternatives = activeDay.places.filter((place) => place.optional && place.category !== "restaurant").sort(comparePlaceOrder);
+function ScheduleView({ activeDay, selectedPlace, selectedPlaceId, selectedRouteId, onSelectRoute, showAlternatives, setShowAlternatives, actualOnly, onToggleActualOnly, onAddPlace, onSelectPlace, onFocusPlace, onToggleComplete, onToggleFavorite, completedIds, favoriteIds, userLocation, onUserLocation }: { activeDay: TripDay; selectedPlace: Place | null; selectedPlaceId: string | null; selectedRouteId?: string; onSelectRoute: (id: string) => void; showAlternatives: boolean; setShowAlternatives: (show: boolean) => void; actualOnly: boolean; onToggleActualOnly: () => void; onAddPlace: () => void; onSelectPlace: (place: MapPlace) => void; onFocusPlace: (place: MapPlace) => void; onToggleComplete: (id: string) => void; onToggleFavorite: (id: string) => void; completedIds: string[]; favoriteIds: string[]; userLocation: Coordinate | null; onUserLocation: (location: Coordinate) => void }) {
+  const activeRoute = activeDay.routeOptions?.find((route) => route.id === selectedRouteId);
+  const routePlaceIds = new Set(activeRoute?.placeIds ?? []);
+  const routeStops = activeRoute ? activeRoute.placeIds.map((id) => activeDay.places.find((place) => place.id === id)).filter((place): place is Place => Boolean(place)) : activeDay.places.filter((place) => !place.optional);
+  const primaryPlaces = routeStops.map((place, index) => ({ ...place, order: index + 1 }));
+  const restaurantAlternatives = activeDay.places.filter((place) => place.optional && !routePlaceIds.has(place.id) && place.category === "restaurant").sort(comparePlaceOrder);
+  const otherAlternatives = activeDay.places.filter((place) => place.optional && !routePlaceIds.has(place.id) && place.category !== "restaurant").sort(comparePlaceOrder);
   const withDay = (place: Place): MapPlace => ({ ...place, dayNumber: activeDay.dayNumber, dayOfMonth: activeDay.dayOfMonth, dayTitle: activeDay.title });
   const visitedCount = activeDay.places.filter((place) => completedIds.includes(place.id)).length;
   const renderCard = (place: Place) => <PlaceCardDataAdapter place={place} selected={selectedPlaceId === place.id} completed={completedIds.includes(place.id)} favorite={favoriteIds.includes(place.id)} onSelect={() => onSelectPlace(withDay(place))} onToggleComplete={() => onToggleComplete(place.id)} onToggleFavorite={() => onToggleFavorite(place.id)} />;
@@ -558,6 +561,7 @@ function ScheduleView({ activeDay, selectedPlace, selectedPlaceId, showAlternati
           <label className="alternative-toggle"><input type="checkbox" checked={showAlternatives} onChange={(event) => setShowAlternatives(event.target.checked)} /><span className="toggle-track" /><span>대체 후보</span></label>
         </div>
       </section>
+      {!actualOnly && activeDay.routeOptions?.length ? <TravelRouteSelector options={activeDay.routeOptions} selectedId={activeRoute?.id ?? activeDay.routeOptions[0].id} onSelect={onSelectRoute} /> : null}
       <TripMap places={primaryPlaces.map(withDay)} routePlaces={primaryPlaces.map(withDay)} selectedPlace={selectedPlace} onSelect={onSelectPlace} onMarkerSelect={onFocusPlace} userLocation={userLocation} onUserLocation={onUserLocation} />
       <section className="itinerary-section" aria-label={`${activeDay.dayOfMonth}일 일정 목록`}>
         <div className="section-heading"><div><span className="eyebrow">{primaryPlaces.length} STOPS</span><h2>{actualOnly ? "실제 방문 기록" : "오늘의 동선"}</h2></div><span className="section-hint">체크=실제 방문</span></div>
@@ -612,6 +616,7 @@ export default function Prototype() {
   const [view, setView] = useState<View>("schedule");
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(() => initialDayOfMonth());
+  const [selectedRoutes, setSelectedRoutes] = useState<Record<number, string>>({});
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [showAlternatives, setShowAlternatives] = useState(false);
@@ -640,6 +645,7 @@ export default function Prototype() {
   const visibleDays = useMemo(() => editedDays.map((day) => ({ ...day, places: actualOnly ? day.places.filter((place) => completedIds.includes(place.id)) : day.places })), [actualOnly, completedIds, editedDays]);
   const transferTripSnapshot = useMemo<Trip>(() => ({ ...trip, days: editedDays }), [editedDays]);
   const activeDay = visibleDays.find((day) => day.dayOfMonth === selectedDay) ?? visibleDays[0] ?? trip.days[0];
+  const selectedRouteId = selectedRoutes[activeDay.dayNumber] ?? activeDay.defaultRouteId ?? activeDay.routeOptions?.[0]?.id;
   const allPlaces = useMemo(() => visibleDays.flatMap((day) => day.places.map((place) => ({ ...place, dayNumber: day.dayNumber, dayOfMonth: day.dayOfMonth, dayTitle: day.title }))), [visibleDays]);
   const selectedPlace = allPlaces.find((place) => place.id === selectedPlaceId) ?? null;
   const selectedPlaceDay = selectedPlace ? visibleDays.find((day) => day.dayNumber === selectedPlace.dayNumber) : activeDay;
@@ -715,6 +721,7 @@ export default function Prototype() {
     file.text().then((value) => { setTransferText(value); setTransferStatus({ tone: "info", message: `${file.name}을 불러왔습니다. 내용을 확인한 뒤 업데이트하세요.` }); }).catch(() => setTransferStatus({ tone: "error", message: "파일을 읽지 못했습니다. JSON 파일인지 확인해 주세요." }));
   };
   const selectDay = (dayOfMonth: number) => { const nextDay = visibleDays.find((day) => day.dayOfMonth === dayOfMonth); if (!nextDay) return; setSelectedDay(dayOfMonth); setSelectedPlaceId(nextDay.places[0]?.id ?? null); setView("schedule"); setSheetOpen(false); };
+  const selectRoute = (routeId: string) => { setSelectedRoutes((current) => ({ ...current, [activeDay.dayNumber]: routeId })); const route = activeDay.routeOptions?.find((item) => item.id === routeId); setSelectedPlaceId(route?.placeIds[0] ?? null); setSheetOpen(false); };
   const focusPlace = (place: MapPlace) => {
     setSelectedDay(place.dayOfMonth);
     setSelectedPlaceId(place.id);
@@ -761,7 +768,7 @@ export default function Prototype() {
     setSelectedPlaceId(null);
     setSheetOpen(false);
   };
-  const appContent: ReactNode = view === "schedule" ? <ScheduleView activeDay={activeDay} selectedPlace={selectedPlace} selectedPlaceId={selectedPlaceId} showAlternatives={showAlternatives} setShowAlternatives={setShowAlternatives} actualOnly={actualOnly} onToggleActualOnly={() => { setActualOnly((current) => !current); setSheetOpen(false); }} onAddPlace={() => openEditor()} onSelectPlace={selectPlace} onFocusPlace={focusPlace} onToggleComplete={(id) => toggleId(setCompletedIds, id)} onToggleFavorite={(id) => toggleId(setFavoriteIds, id)} completedIds={completedIds} favoriteIds={favoriteIds} userLocation={userLocation} onUserLocation={setUserLocation} /> : view === "map" ? <AllMapView allPlaces={allPlaces} selectedPlace={selectedPlace} onSelectPlace={selectPlace} onUserLocation={setUserLocation} userLocation={userLocation} /> : view === "reservations" ? <ReservationsView places={allPlaces} reservationDoneIds={reservationDoneIds} onToggleReservation={(id) => toggleId(setReservationDoneIds, id)} onSelectPlace={selectPlace} /> : <SavedView places={allPlaces} favoriteIds={favoriteIds} notes={notes} onSelectPlace={selectPlace} />;
+  const appContent: ReactNode = view === "schedule" ? <ScheduleView activeDay={activeDay} selectedPlace={selectedPlace} selectedPlaceId={selectedPlaceId} selectedRouteId={selectedRouteId} onSelectRoute={selectRoute} showAlternatives={showAlternatives} setShowAlternatives={setShowAlternatives} actualOnly={actualOnly} onToggleActualOnly={() => { setActualOnly((current) => !current); setSheetOpen(false); }} onAddPlace={() => openEditor()} onSelectPlace={selectPlace} onFocusPlace={focusPlace} onToggleComplete={(id) => toggleId(setCompletedIds, id)} onToggleFavorite={(id) => toggleId(setFavoriteIds, id)} completedIds={completedIds} favoriteIds={favoriteIds} userLocation={userLocation} onUserLocation={setUserLocation} /> : view === "map" ? <AllMapView allPlaces={allPlaces} selectedPlace={selectedPlace} onSelectPlace={selectPlace} onUserLocation={setUserLocation} userLocation={userLocation} /> : view === "reservations" ? <ReservationsView places={allPlaces} reservationDoneIds={reservationDoneIds} onToggleReservation={(id) => toggleId(setReservationDoneIds, id)} onSelectPlace={selectPlace} /> : <SavedView places={allPlaces} favoriteIds={favoriteIds} notes={notes} onSelectPlace={selectPlace} />;
 
   const headerTitle = view === "schedule" ? trip.title : view === "map" ? "전체 지도" : view === "reservations" ? "예약·운영 확인" : "저장한 장소";
   const changeView = (nextView: View) => { setView(nextView); setMenuOpen(false); };

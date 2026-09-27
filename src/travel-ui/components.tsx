@@ -1,11 +1,16 @@
 import { type CSSProperties, type ReactNode } from "react";
 import { AlertTriangle, ArrowLeft, Bookmark, CalendarDays, Check, CheckCircle2, ChevronLeft, ChevronRight, CircleDollarSign, ClipboardCheck, Clock3, Copy, Download, Heart, Info, Lightbulb, ListChecks, Map as MapIcon, MapPinned, Menu, Navigation, Share2, Ticket, Upload, X, type LucideIcon } from "lucide-react";
 import { BottomSheet, KeyboardTextarea, useKeyboard } from "../mobile";
-import type { Category, Place, TripDay, TransferMode, TransferStatus, TripGuideItem, TripGuideKind, View } from "./types";
+import type { Category, Place, TripDay, TripRouteOption, TransferMode, TransferStatus, TripGuideItem, TripGuideKind, View } from "./types";
 
 const reservationLabels = { required: "예약 필수", recommended: "예약 권장", check_required: "확인 필요", completed: "예약 완료" } as const;
 
 export type CategoryConfig = { key: Category; label: string; color: string; Icon: LucideIcon };
+
+export function TravelRouteSelector({ options, selectedId, onSelect }: { options: TripRouteOption[]; selectedId: string; onSelect: (id: string) => void }) {
+  if (!options.length) return null;
+  return <section className="route-options" aria-label="오늘의 동선 선택"><div className="route-options-heading"><div><span className="eyebrow">ROUTE OPTIONS</span><h2>오늘은 어떤 코스로?</h2></div><span>선택한 코스가 지도와 일정에 반영돼요</span></div><div className="route-options-list" role="group" aria-label="대체 동선">{options.map((option, index) => <button type="button" key={option.id} className={`route-option${selectedId === option.id ? " is-selected" : ""}`} aria-pressed={selectedId === option.id} onClick={() => onSelect(option.id)}><span className="route-option-number">{index + 1}</span><span className="route-option-copy"><strong>{option.title}</strong><span>{option.summary}</span>{selectedId === option.id && option.notes ? <small>{option.notes}</small> : null}</span><span className="route-option-check" aria-hidden="true">{selectedId === option.id ? "선택됨" : "선택"}</span></button>)}</div></section>;
+}
 
 export function TravelHeader({ title, dateLabel, days, activeDay, view, menuOpen, onMenuToggle, onViewChange, onDayChange, onOpenGuide, onExportData, onImportData }: { title: string; dateLabel: string; days: TripDay[]; activeDay: TripDay; view: View; menuOpen: boolean; onMenuToggle: (open: boolean) => void; onViewChange: (view: View) => void; onDayChange: (day: number) => void; onOpenGuide?: () => void; onExportData: () => void; onImportData: () => void }) {
   const activeDayIndex = days.findIndex((day) => day.dayOfMonth === activeDay.dayOfMonth);

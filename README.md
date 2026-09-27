@@ -17,6 +17,7 @@
 | 여행 허브 | [sgustjd2.github.io/travel](https://sgustjd2.github.io/travel/) | 여행지별 앱 목록 |
 | 교토·고베 | [교토·고베 여행 앱](https://sgustjd2.github.io/travel/kyoto-kobe-trip/?day=19) | 19일~22일 일정 |
 | 제주 스포츠 투어 | [제주 여행 앱](https://sgustjd2.github.io/travel/jeju-sports-trip/) | 10월 1일~4일 일정 |
+| 부산 혼자 여행 | [부산 1박 2일 여행 앱](https://sgustjd2.github.io/travel/busan-solo-trip/?day=28) | 자연 경관·동네 산책·로컬 맛집 |
 
 > 이 링크는 현재 저장소의 공개 주소입니다. clone/fork한 저장소는 본인 GitHub Pages 주소가 생성됩니다.
 
@@ -254,6 +255,7 @@ prompts/                        # 조사·앱 생성 원샷 프롬프트
 | `TravelCategoryLegend` | 장소 종류별 색상·아이콘 범례 |
 | `TravelPlaceCard` | 번호·카테고리·운영정보·썸네일·체크·즐겨찾기 |
 | `TravelGuideSheet` | 필수 준비·주의할 점·여행 꿀팁 체크리스트 |
+| `TravelRouteSelector` | 날짜별 대안 동선 선택, 선택 경로를 지도와 일정에 반영 |
 | `TravelDataTransferSheet` | JSON 내보내기·가져오기·공유 |
 
 ### 화면 규칙

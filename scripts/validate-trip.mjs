@@ -101,6 +101,37 @@ function validateTrip(file) {
         }
       }
     }
+
+    if (day.routeOptions !== undefined) {
+      if (!Array.isArray(day.routeOptions) || day.routeOptions.length === 0) {
+        addError(file, `${dayLabel}.routeOptions must be a non-empty array`);
+      } else {
+        const routeIds = new Set();
+        const placeIds = new Set(day.places.filter(isObject).map((place) => place.id));
+        for (const [routeIndex, route] of day.routeOptions.entries()) {
+          const routeLabel = `${dayLabel} route ${routeIndex + 1}`;
+          if (!isObject(route)) {
+            addError(file, `${routeLabel} must be an object`);
+            continue;
+          }
+          for (const field of ["id", "title", "summary"]) {
+            if (!isNonEmptyString(route[field])) addError(file, `${routeLabel}.${field} is required`);
+          }
+          if (routeIds.has(route.id)) addError(file, `${dayLabel} has duplicate route id ${route.id}`);
+          routeIds.add(route.id);
+          if (!Array.isArray(route.placeIds) || route.placeIds.length === 0) {
+            addError(file, `${routeLabel}.placeIds must be a non-empty array`);
+          } else {
+            for (const placeId of route.placeIds) {
+              if (!isNonEmptyString(placeId) || !placeIds.has(placeId)) addError(file, `${routeLabel} references an unknown place id: ${placeId}`);
+            }
+          }
+        }
+        if (day.defaultRouteId !== undefined && !routeIds.has(day.defaultRouteId)) addError(file, `${dayLabel}.defaultRouteId must match a route id`);
+      }
+    } else if (day.defaultRouteId !== undefined) {
+      addError(file, `${dayLabel}.defaultRouteId requires routeOptions`);
+    }
   }
 
   return { days: trip.days.length, places: placeCount };

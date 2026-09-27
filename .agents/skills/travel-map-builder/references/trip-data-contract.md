@@ -14,13 +14,19 @@ Use the shared TypeScript types in `src/travel-ui/types.ts` as the final authori
       "dayOfMonth": 19,
       "city": "교토",
       "title": "하루 일정 제목",
-      "places": []
+      "places": [],
+      "defaultRouteId": "route-a",
+      "routeOptions": [
+        { "id": "route-a", "title": "기본 코스", "summary": "역 주변 중심", "placeIds": ["sample-restaurant"] }
+      ]
     }
   ]
 }
 ```
 
 Keep `dayNumber`, `dayOfMonth`, and each place `order` numeric. Use stable kebab-case IDs. If lodging repeats on different days, give each itinerary occurrence its own ID.
+
+`routeOptions` is optional. Each option uses stable `id`, a display `title` and `summary`, and `placeIds` in visit order. Every referenced ID must exist in that day's `places`; `defaultRouteId` should match one option ID. If there are no route options, the app uses the non-optional places in their normal order.
 
 ## Preparation guide items
 
